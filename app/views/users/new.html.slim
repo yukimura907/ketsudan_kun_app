@@ -1,0 +1,20 @@
+.ui.container.main
+  h1.header.title
+    | 新規登録
+  .ui.form
+    = form_with model: @user, local: true do |f|
+      .field  
+        = f.label :名前
+        = f.text_field :name
+      .field
+        = f.label :メールアドレス
+        = f.text_field :email
+      .field 
+        = f.label :パスワード
+        = f.password_field :password
+      .field 
+        = f.label :パスワード確認
+        = f.password_field :password_confirmation
+      
+        = f.submit '登録する', class: 'ui secondary button'
+          
