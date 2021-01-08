@@ -44,3 +44,16 @@
   width:200px;
   margin:30px 0;
 }
+
+.ui.form {
+  width:400px;
+  margin-top:70px;
+}
+
+.ui.success.message {
+  margin-top:40px;
+}
+
+.ui.error.message {
+  margin-top:40px;
+}

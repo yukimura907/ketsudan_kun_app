@@ -1,0 +1,13 @@
+.ui.container.main
+  h1.header.title
+    | ログイン
+  .ui.form
+    = form_with url: login_path, local: true do |f|
+      .field  
+        = f.label :メールアドレス
+        = f.text_field :email
+      .field
+        = f.label :パスワード
+        = f.password_field :password
+
+        = f.submit 'ログインする', class: 'ui secondary button'
