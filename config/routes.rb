@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get '/contact', to: 'static_pages#contact'
   get '/contract', to: 'static_pages#contract'
 
-  resources :users, only: %i[new create]
+  resources :users
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'
   post 'logout', to: 'user_sessions#destroy'
