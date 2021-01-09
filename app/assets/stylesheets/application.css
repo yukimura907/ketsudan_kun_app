@@ -63,3 +63,7 @@ footer {
 .ui.error.message {
   margin-top:40px;
 }
+
+.p.confirm {
+  font-size: 18px;
+}

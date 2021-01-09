@@ -1,0 +1,22 @@
+.ui.container.main
+  h1.header.title
+    | 選択肢
+    h3.ui.header
+      |お題と選択肢を入力せよ
+  .ui.form
+    = form_with model: @choice, local: true do |f|
+      .field  
+        = f.label :お題
+        = f.text_field :title
+        br
+        br
+        br
+      .field
+        = f.label :１つ目の選択肢
+        = f.text_field :option_1
+      .field 
+        = f.label :２つ目の選択肢
+        = f.text_field :option_2
+      
+        = f.submit '登録する', class: 'ui secondary button'
+          
