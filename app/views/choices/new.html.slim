@@ -4,7 +4,7 @@
     h3.ui.header
       |お題と選択肢を入力せよ
   .ui.form
-    = form_with model: @choice, local: true do |f|
+    = form_with model: @choice, url: confirm_choices_path, local: true do |f|
       .field  
         = f.label :お題
         = f.text_field :title
@@ -18,5 +18,5 @@
         = f.label :２つ目の選択肢
         = f.text_field :option_2
       
-        = f.submit '登録する', class: 'ui secondary button'
+        = f.submit '確認する', class: 'ui secondary button'
           

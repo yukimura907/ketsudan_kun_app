@@ -7,9 +7,14 @@ Rails.application.routes.draw do
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'
   post 'logout', to: 'user_sessions#destroy'
-  get '/choices/:id/confirm', to: 'choices#confirm'
 
-  resources :choices, only: %i[new create edit update]
+  get '/choices/confirm', to: 'choices#confirm'
+
+  resources :choices, only: %i[new create edit update] do
+    collection do
+      post :confirm, :result
+    end
+  end
   resources :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -3,22 +3,24 @@ class ChoicesController < ApplicationController
     @choice = Choice.new
   end
 
-  def create
+  def confirm
     @choice = current_user.choices.new(choice_params)
-    if @choice.save
-      flash[:success] = '選択肢を登録しました'
-      redirect_to root_path
-    else 
-      flash.now[:danger] = '登録に失敗しました'
+    if @choice.invalid?
       render :new
     end
   end
 
-  def confirm
-    @choice = Choice.find(params[:id])
+  def create
+    @choice = current_user.choices.new(choice_params)
+    options = []
+    options.push(@choice.option_1, @choice.option_2)
+    @result = options.sample
+    redirect_to root_path
   end
 
   def edit
+    @choice = current_user.choices.new(choice_params)
+     render :new
   end
 
   def update
