@@ -7,12 +7,8 @@
     |  拙者が代わりに 
     br
     |  下ぞうぞ 
-  .button.lists
-    button.ui.secondary.button[type="button" onclick="location.href='/users/new'"]
-      i.icon.user.plus
-      |  新規登録して決断！ 
-    button.ui.secondary.button[type="button" onclick="location.href='/login'"]
-      i.icon.sign.in.alternate
-      |  ログインして決断！ 
-    button.ui.secondary.button[type="button" onclick="location.href='#'"]
-      |  登録せずに決断！ 
+  
+  - if current_user
+    == render 'shared/top'
+  - else
+    == render 'shared/before_login_top'

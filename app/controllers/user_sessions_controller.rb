@@ -1,4 +1,6 @@
 class UserSessionsController < ApplicationController
+  skip_before_action :require_login, only: [:new, :create]
+
   def new
     @user = User.new
   end
@@ -6,8 +8,7 @@ class UserSessionsController < ApplicationController
   def create
     @user = login(params[:email], params[:password])
     if @user
-      flash[:success] = 'ログインしました'
-      redirect_back_or_to user_path(@user)
+      redirect_back_or_to new_choice_path, success: 'ログインしました'
     else
       flash.now[:danger] = 'ログインに失敗しました'
       render :new
@@ -16,7 +17,6 @@ class UserSessionsController < ApplicationController
 
   def destroy
     logout
-    flash[:success] = 'ログアウトしました'
-    redirect_to root_path
+    redirect_to root_path, success: 'ログアウトしました'
   end
 end

@@ -1,17 +1,18 @@
 class ChoicesController < ApplicationController
+  before_action :set_choice_instance, only: [:confirm, :create, :edit]
+  before_action :result_throuth_confirm?, only: [:result]
+
   def new
     @choice = Choice.new
   end
 
   def confirm
-    @choice = current_user.choices.build(choice_params)
     if @choice.invalid?
       render :new
     end
   end
 
   def create
-    @choice = current_user.choices.build(choice_params)
     options = []
     options.push(@choice.option_1, @choice.option_2)
     @choice.result = options.sample
@@ -27,7 +28,6 @@ class ChoicesController < ApplicationController
   end
 
   def edit
-    @choice = current_user.choices.build(choice_params)
      render :new
   end
 
@@ -39,6 +39,17 @@ class ChoicesController < ApplicationController
 
   private
   
+  def set_choice_instance
+    @choice = current_user.choices.build(choice_params)
+  end
+
+  def result_throuth_confirm?
+    if request.referer.nil?
+      redirect_to new_choice_path 
+      flash[:danger] = 'お題と選択肢を入力してください'
+    end
+  end
+
   def choice_params
     params.require(:choice).permit(:title, :option_1, :option_2, :result)
   end

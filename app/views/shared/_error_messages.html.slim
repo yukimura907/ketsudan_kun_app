@@ -1,0 +1,7 @@
+- if model.errors.any? 
+  div.ui.orange.message.closable
+    i.close.icon
+    ul.list
+      - model.errors.full_messages.each do |message| 
+        li = message 
+
