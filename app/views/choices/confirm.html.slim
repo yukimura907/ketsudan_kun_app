@@ -1,0 +1,24 @@
+.ui.container.main
+  h1.header.title
+    | 最後の確認
+  <br>
+  h3.ui.header
+    <span style="border-bottom: solid 2px black;">お題</span>
+  .p.confirm #{@choice.title}
+  
+  h3.ui.header
+    <span style="border-bottom: solid 2px black;">１つ目の選択肢</span>
+  .p.confirm #{@choice.option_1}
+  
+  h3.ui.header
+    <span style="border-bottom: solid 2px black;">2つ目の選択肢</span>
+  .p.confirm #{@choice.option_2}
+
+  = form_with model: @choice, url: about_path, local: true do |f| 
+    = f.hidden_field :title
+    = f.hidden_field :option_1
+    = f.hidden_field :option_2
+
+    = f.submit 'いざ！', class: 'ui secondary button'
+ 
+

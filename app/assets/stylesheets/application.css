@@ -13,8 +13,13 @@
  *= require_tree .
  *= require_self
  */
+#wrapper {
+  width: 100%;
+  position: relative;
+  min-height: 100%;
+}
 
- .footer {
+footer {
   background-color: black;
   position: absolute;
   bottom: 0;
@@ -25,7 +30,8 @@
 }
 
 .ui.container.main {
-  padding-top: 80px;
+  padding-top:80px;
+  padding-bottom:80px;
 }
 
 .header.title {
@@ -56,4 +62,8 @@
 
 .ui.error.message {
   margin-top:40px;
+}
+
+.p.confirm {
+  font-size: 18px;
 }

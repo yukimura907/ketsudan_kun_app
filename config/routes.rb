@@ -4,10 +4,17 @@ Rails.application.routes.draw do
   get '/policy', to: 'static_pages#policy'
   get '/contact', to: 'static_pages#contact'
   get '/contract', to: 'static_pages#contract'
-
-  resources :users, only: %i[new create]
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'
   post 'logout', to: 'user_sessions#destroy'
+
+  get '/choices/confirm', to: 'choices#confirm'
+
+  resources :choices, only: %i[new create edit update] do
+    collection do
+      post :confirm, :result
+    end
+  end
+  resources :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
