@@ -2,9 +2,6 @@
   h1.header.title
     | プロフィール
     <br><br>
-  button.ui.secondary.basic.button[type="button" onclick="location.href='/users/#{@user.id}/edit'"]
-    | 情報を変更する
-
   h3.ui.header
     <span style="border-bottom: solid 2px black;">名前</span>
   p #{@user.name}
@@ -28,15 +25,18 @@
   h3.ui.header
     <span style="border-bottom: solid 2px black;">優柔不断度</span>
   p とんでもなく優柔不断。たまには自分で決めるべし
-    <br><br><br>
+  <br><br>
+  button.ui.secondary.basic.button[type="button" onclick="location.href='/users/#{@user.id}/edit'"]
+    | 情報を変更する
+  button.ui.secondary.button[type="button" onclick="location.href='/choices/new'"]
+    | 決断しに行く！
+
+  <br><br><br>
   .ui.tabular.menu
     a.item
       h3 過去の決断一覧
     a.item
       h3 お気に入りの決断一覧
-  
-  button.ui.secondary.button[type="button" onclick="location.href='#'"]
-    | 決断しに行く！
 
       
 

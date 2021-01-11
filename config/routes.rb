@@ -7,12 +7,12 @@ Rails.application.routes.draw do
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'
   post 'logout', to: 'user_sessions#destroy'
-
-  get '/choices/confirm', to: 'choices#confirm'
+  get '/choices/result/:id', to: 'choices#result'
 
   resources :choices, only: %i[new create edit update] do
     collection do
-      post :confirm, :result
+      post :confirm
+      get :confirm
     end
   end
   resources :users
