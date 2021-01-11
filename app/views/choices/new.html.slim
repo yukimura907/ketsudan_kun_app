@@ -5,6 +5,7 @@
       |お題と選択肢を入力せよ
   .ui.form
     = form_with model: @choice, url: confirm_choices_path, local: true do |f|
+      = render 'shared/error_messages', model: f.object
       .field  
         = f.label :お題
         = f.text_field :title

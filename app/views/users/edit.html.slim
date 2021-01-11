@@ -3,6 +3,7 @@
     | ユーザー編集
   .ui.form
     = form_with model: @user, local: true do |f|
+      = render 'shared/error_messages', model: f.object
       .field  
         = f.label :名前
         = f.text_field :name
