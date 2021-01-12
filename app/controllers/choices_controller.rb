@@ -1,7 +1,7 @@
 class ChoicesController < ApplicationController
   before_action :set_choice_instance, only: [:confirm, :create, :edit]
   before_action :result_throuth_confirm?, only: [:result]
-
+  before_action :today_choices_too_many?, only: [:new]
   def new
     @choice = Choice.new
   end
@@ -27,6 +27,8 @@ class ChoicesController < ApplicationController
     @choice = Choice.find(params[:id])
   end
 
+  def alert; end
+
   def edit
      render :new
   end
@@ -47,6 +49,13 @@ class ChoicesController < ApplicationController
     if request.referer.nil?
       redirect_to new_choice_path 
       flash[:danger] = 'お題と選択肢を入力してください'
+    end
+  end
+
+
+  def today_choices_too_many?
+    if current_user.count_today_choices > 5
+      redirect_to alert_choices_path
     end
   end
 

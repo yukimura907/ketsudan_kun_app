@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :choices, only: %i[new create edit update] do
     collection do
       post :confirm
-      get :confirm
+      get :confirm, :alert
     end
   end
   resources :users
