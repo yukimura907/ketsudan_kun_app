@@ -1,0 +1,17 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+      choice: 選択肢
+    attributes:
+      user:
+        name: 名前
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード確認
+      choice:
+        title: お題
+        option_1: 一つ目の選択肢
+        option_2: 二つ目の選択肢
+        result: 決断結果
+      

@@ -16,15 +16,15 @@
     <br>
   h3.ui.header
     <span style="border-bottom: solid 2px black;">本日の決断回数</span>
-  p
+  p #{@user.count_today_choices}
     <br>
   h3.ui.header
     <span style="border-bottom: solid 2px black;">これまでの決断回数</span>
-  p 
+  p #{@user.count_all_choices}
     <br>
   h3.ui.header
     <span style="border-bottom: solid 2px black;">優柔不断度</span>
-  p とんでもなく優柔不断。たまには自分で決めるべし
+  p #{@user.how_often?}
   <br><br>
   button.ui.secondary.basic.button[type="button" onclick="location.href='/users/#{@user.id}/edit'"]
     | 情報を変更する
