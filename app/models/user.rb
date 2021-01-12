@@ -12,23 +12,23 @@ class User < ApplicationRecord
   has_many :choices
 
   def count_all_choices
-    self.choices.count
+    choices.count
   end
 
   def count_today_choices
     from = Time.current.beginning_of_day
     to = Time.current.end_of_day
-    all_choices = self.choices.all
-    return all_choices.where(created_at: from...to).count
+    all_choices = choices.all
+    all_choices.where(created_at: from...to).count
   end
 
   def how_often?
-    if self.count_all_choices > 20
-      return 'とんでもなく優柔不断。たまには自分で決断せよ'
-    elsif 20 >= self.count_all_choices >10
-      return 'まぁまぁ優柔不断だが許容範囲'
+    if count_all_choices > 20
+      'とんでもなく優柔不断。たまには自分で決断せよ'
+    elsif count_all_choices > 10 && count_all_choices <= 20
+      'まぁまぁ優柔不断だが許容範囲'
     else
-      return '人並みに優柔不断。安心せよ。'
+      '人並みに優柔不断。安心せよ。'
     end
   end
 end

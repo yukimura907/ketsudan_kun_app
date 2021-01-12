@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   post 'logout', to: 'user_sessions#destroy'
   get '/choices/result/:id', to: 'choices#result'
 
-  resources :choices, only: %i[new create edit update] do
+  resources :choices, only: [:new, :create, :edit, :update] do
     collection do
       post :confirm
       get :confirm, :alert

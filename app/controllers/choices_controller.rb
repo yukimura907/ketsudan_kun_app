@@ -7,9 +7,7 @@ class ChoicesController < ApplicationController
   end
 
   def confirm
-    if @choice.invalid?
-      render :new
-    end
+    render :new if @choice.invalid?
   end
 
   def create
@@ -17,7 +15,7 @@ class ChoicesController < ApplicationController
     options.push(@choice.option_1, @choice.option_2)
     @choice.result = options.sample
     if @choice.save
-      redirect_to "/choices/result/#{@choice.id}" 
+      redirect_to "/choices/result/#{@choice.id}"
     else
       render :new
     end
@@ -30,33 +28,28 @@ class ChoicesController < ApplicationController
   def alert; end
 
   def edit
-     render :new
+    render :new
   end
 
-  def update
-  end
+  def update; end
 
-  def destroy
-  end
+  def destroy; end
 
   private
-  
+
   def set_choice_instance
     @choice = current_user.choices.build(choice_params)
   end
 
   def result_throuth_confirm?
     if request.referer.nil?
-      redirect_to new_choice_path 
+      redirect_to new_choice_path
       flash[:danger] = 'お題と選択肢を入力してください'
     end
   end
 
-
   def today_choices_too_many?
-    if current_user.count_today_choices > 5
-      redirect_to alert_choices_path
-    end
+    redirect_to alert_choices_path if current_user.count_today_choices > 5
   end
 
   def choice_params
