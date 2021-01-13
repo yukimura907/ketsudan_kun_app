@@ -1,7 +1,7 @@
 class ChoicesController < ApplicationController
   before_action :set_choice_instance, only: [:confirm, :create, :edit]
   before_action :result_throuth_confirm?, only: [:result]
-  before_action :today_choices_too_many?, only: [:new, :result]
+  before_action :today_choices_too_many?, only: [:new]
   def new
     @choice = Choice.new
   end
@@ -13,12 +13,12 @@ class ChoicesController < ApplicationController
   def create
     options = []
     options.push(@choice.option_1, @choice.option_2, @choice.option_3, @choice.option_4, @choice.option_5)
-    options.compact!
+    options.reject!(&:blank?)
     @choice.result = options.sample
-    if @choice.save
-      redirect_to "/choices/result/#{@choice.id}"
-    else
+    if params[:back]
       render :new
+    elsif @choice.save
+      redirect_to "/choices/result/#{@choice.id}"
     end
   end
 
@@ -50,7 +50,7 @@ class ChoicesController < ApplicationController
   end
 
   def today_choices_too_many?
-    redirect_to alert_choices_path if current_user.count_today_choices > 5
+    redirect_to alert_choices_path if current_user.count_today_choices > 100
   end
 
   def choice_params
