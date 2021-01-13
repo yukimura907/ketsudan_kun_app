@@ -1,0 +1,45 @@
+.ui.container.main
+  h1.header.title
+    | 選択肢
+    h3.ui.header
+      |お題と選択肢を入力せよ
+  .ui.form
+    = form_with model: @choice, url: confirm_guests_choices_path, local: true do |f|
+      = render 'shared/error_messages', model: f.object
+      .field  
+        = f.label :お題
+        = f.text_field :title
+        <br><br><br>
+      .field
+        = f.label :１つ目の選択肢
+        = f.text_field :option_1
+      .field 
+        = f.label :２つ目の選択肢
+        = f.text_field :option_2
+        .ui.icon.button.two style= 'float: right;'
+          i.plus.icon
+      
+      .field.three style= 'display: none;'
+        = f.label :３つ目の選択肢
+        = f.text_field :option_3
+        .ui.icon.button.three.plus style= 'float: right;'
+          i.plus.icon
+        .ui.icon.button.three.minus style= 'float: right;'
+          i.minus.icon
+
+      
+      .field.four style= 'display: none;'
+        = f.label :４つ目の選択肢
+        = f.text_field :option_4
+        .ui.icon.button.four.plus style= 'float: right;'
+          i.plus.icon
+        .ui.icon.button.four.minus style= 'float: right;'
+          i.minus.icon
+     
+      .field.five style= 'display: none;'
+        = f.label :５つ目の選択肢
+        = f.text_field :option_5
+        .ui.icon.button.five style= 'float: right;'
+          i.minus.icon
+      
+      = f.submit '確認する', class: 'ui secondary button'
