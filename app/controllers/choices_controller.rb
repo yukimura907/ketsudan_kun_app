@@ -1,7 +1,7 @@
 class ChoicesController < ApplicationController
   before_action :set_choice_instance, only: [:confirm, :create, :edit]
   before_action :result_throuth_confirm?, only: [:result]
-  before_action :today_choices_too_many?, only: [:new]
+  before_action :today_choices_too_many?, only: [:new, :result]
   def new
     @choice = Choice.new
   end
@@ -12,7 +12,8 @@ class ChoicesController < ApplicationController
 
   def create
     options = []
-    options.push(@choice.option_1, @choice.option_2)
+    options.push(@choice.option_1, @choice.option_2, @choice.option_3, @choice.option_4, @choice.option_5)
+    options.compact!
     @choice.result = options.sample
     if @choice.save
       redirect_to "/choices/result/#{@choice.id}"
@@ -53,6 +54,6 @@ class ChoicesController < ApplicationController
   end
 
   def choice_params
-    params.require(:choice).permit(:title, :option_1, :option_2, :result)
+    params.require(:choice).permit(:title, :option_1, :option_2, :option_3, :option_4, :option_5, :result)
   end
 end

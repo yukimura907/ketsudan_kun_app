@@ -18,8 +18,7 @@ class User < ApplicationRecord
   def count_today_choices
     from = Time.current.beginning_of_day
     to = Time.current.end_of_day
-    all_choices = choices.all
-    all_choices.where(created_at: from...to).count
+    choices.all.where(created_at: from...to).count
   end
 
   def how_often?
