@@ -9,12 +9,13 @@ Rails.application.routes.draw do
   post 'logout', to: 'user_sessions#destroy'
   get '/choices/result/:id', to: 'choices#result'
 
-  resources :choices, only: %i[new create edit update] do
+  resources :choices, only: [:new, :create, :edit, :update] do
     collection do
       post :confirm
-      get :confirm, :alert
+      get :alert
     end
   end
+
   resources :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

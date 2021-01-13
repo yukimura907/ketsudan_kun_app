@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_11_045658) do
+ActiveRecord::Schema.define(version: 2021_01_13_031113) do
 
   create_table "choices", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "title", null: false
@@ -20,6 +20,9 @@ ActiveRecord::Schema.define(version: 2021_01_11_045658) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "result"
+    t.string "option_3"
+    t.string "option_4"
+    t.string "option_5"
     t.index ["user_id"], name: "index_choices_on_user_id"
   end
 
