@@ -2,18 +2,18 @@ header
   .ui.fixed.inverted.menu
     .ui.container
       .left.menu
-        a.item[href="/"]
+        = link_to root_path, class: 'item'
           i.icon.home
           |  HOME 
-        a.item[href="/about"]
+        = link_to about_path, class: 'item'
           i.icon.info
           |  概要 
 
       .right.menu
-        a.item[href="/users/new"]
+        = link_to new_user_path, class: 'item'
           i.icon.user.plus
           |  新規登録 
-        a.item[href="/login"]
+        = link_to login_path, class: 'item'
           i.icon.sign.in.alternate
           |  ログイン 
           span

@@ -3,31 +3,31 @@
     | 最後の確認
   <br>
   h3.ui.header
-    <span style="border-bottom: solid 2px black;">お題</span>
-  .p.confirm #{@choice.title}
+    <span>お題</span>
+  p.confirm #{@choice.title}
   
   h3.ui.header
-    <span style="border-bottom: solid 2px black;">１つ目の選択肢</span>
-  .p.confirm #{@choice.option_1}
+    <span>1つ目の選択肢</span>
+  p.confirm #{@choice.option_1}
   
   h3.ui.header
-    <span style="border-bottom: solid 2px black;">2つ目の選択肢</span>
-  .p.confirm #{@choice.option_2}
+    <span>2つ目の選択肢</span>
+  p.confirm #{@choice.option_2}
 
   - if @choice.option_3.present?
     h3.ui.header
-      <span style="border-bottom: solid 2px black;">3つ目の選択肢</span>
-    .p.confirm #{@choice.option_3}
+      <span>3つ目の選択肢</span>
+    p.confirm #{@choice.option_3}
 
   - if @choice.option_4.present?
     h3.ui.header
-      <span style="border-bottom: solid 2px black;">4つ目の選択肢</span>
-    .p.confirm #{@choice.option_4}
+      <span>4つ目の選択肢</span>
+    p.confirm #{@choice.option_4}
 
   - if @choice.option_5.present?
     h3.ui.header
-      <span style="border-bottom: solid 2px black;">5つ目の選択肢</span>
-    .p.confirm #{@choice.option_5}
+      <span>5つ目の選択肢</span>
+    p.confirm #{@choice.option_5}
 
 
 
@@ -43,5 +43,5 @@
     = f.submit 'いざ！', class: 'ui secondary button'
     = f.submit '選択肢を考え直す', name: 'back', class: 'ui secondary button'
   
-  button.ui.secondary.button[type="button" onclick="location.href='/'"]
+  = link_to root_path, class: 'ui secondary button'
     | やっぱり自分で決断する
