@@ -2,6 +2,7 @@ class ChoicesController < ApplicationController
   before_action :set_choice_instance, only: [:confirm, :create, :edit]
   before_action :result_throuth_confirm?, only: [:result]
   before_action :today_choices_too_many?, only: [:new]
+  before_action :twitter_client, only: [:create]
   def new
     @choice = Choice.new
   end
@@ -18,6 +19,8 @@ class ChoicesController < ApplicationController
     if params[:back]
       render :new
     elsif @choice.save
+      @client.update("#{current_user.name}は、\r#{@choice.title}に対して、\r#{@choice.result}ことを決めた！！！！")
+      flash[:success] = 'この決断をtwitterに投稿しました。必ず実行してください。'
       redirect_to "/choices/result/#{@choice.id}"
     end
   end
@@ -55,5 +58,14 @@ class ChoicesController < ApplicationController
 
   def choice_params
     params.require(:choice).permit(:title, :option_1, :option_2, :option_3, :option_4, :option_5, :result)
+  end
+
+  def twitter_client
+    @client = Twitter::REST::Client.new do |config|
+      config.consumer_key = "KmuUNllg1VyVhh1u1dkzBEnFq"
+      config.consumer_secret = "HQ1PwYMNBoZ09cYwONrMOkySqGRNeTw9EPm296gGGxfJEb8R4F"
+      config.access_token = "1350342213109051393-VbuNh7S8tw8fc0ChsDqtcnrjVgrvQH"
+      config.access_token_secret ="osHhPxT1fcjtjoIQ4YNtz6Hu3OnMVDGX97W7DhWNkPuad"
+    end
   end
 end
