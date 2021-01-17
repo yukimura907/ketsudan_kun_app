@@ -3,6 +3,7 @@ module ApplicationHelper
     case level
     when 'success' then 'ui success message'
     when 'danger' then 'ui error message'
+    when 'call' then 'ui black message'
     end
   end
 end
