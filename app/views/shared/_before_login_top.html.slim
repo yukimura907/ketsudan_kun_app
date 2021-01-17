@@ -5,5 +5,8 @@
   = link_to login_path, class: 'ui secondary button'
     i.icon.sign.in.alternate
     |  ログインして決断！ 
-  = link_to guests_choices_new_path, class: 'ui secondary button'
+  = link_to auth_at_provider_path(provider: :twitter), class: 'ui secondary button'
+    i.icon.sign.in.alternate
+    |  Twitterでログイン 
+  = link_to new_guests_choice_path, class: 'ui secondary button'
     |  登録せずに決断！ 
