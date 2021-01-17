@@ -64,6 +64,12 @@ footer {
   margin-top:40px;
 }
 
-.p.confirm {
+
+.confirm {
   font-size: 18px;
+}
+
+.ui.header
+  span {
+    border-bottom: solid 2px black;
 }

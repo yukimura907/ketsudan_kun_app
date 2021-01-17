@@ -1,9 +1,9 @@
 .button.lists
-  button.ui.secondary.button[type="button" onclick="location.href='/users/new'"]
+  = link_to new_user_path, class: 'ui secondary button'
     i.icon.user.plus
     |  新規登録して決断！ 
-  button.ui.secondary.button[type="button" onclick="location.href='/login'"]
+  = link_to login_path, class: 'ui secondary button'
     i.icon.sign.in.alternate
     |  ログインして決断！ 
-  button.ui.secondary.button[type="button" onclick="location.href='/guests/choices/new'"]
+  = link_to guests_choices_new_path, class: 'ui secondary button'
     |  登録せずに決断！ 

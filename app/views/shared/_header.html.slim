@@ -2,18 +2,18 @@ header
   .ui.fixed.inverted.menu
     .ui.container
       .left.menu
-        a.item[href="/"]
+        = link_to root_path, class: 'item'
           i.icon.home
-          |  HOME 
-        a.item[href="/about"]
+          | HOME 
+        = link_to about_path, class: 'item'
           i.icon.info
           |  概要 
-        a.item[href="#"]
+        = link_to '#', class: 'item'
           i.icon.users
           |  決断一覧 
   
       .right.menu
-        a.item[href="/users/#{current_user.id}"]
+        = link_to user_path(current_user), class: 'item'
           i.icon.user
           |  マイページ 
         = link_to logout_path, class: 'item', method: :destroy do

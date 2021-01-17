@@ -3,33 +3,33 @@
     | プロフィール
     <br><br>
   h3.ui.header
-    <span style="border-bottom: solid 2px black;">名前</span>
+    <span>名前</span>
   p #{@user.name}
     <br>
   h3.ui.header
-    <span style="border-bottom: solid 2px black;">メールアドレス</span>
+    <span>メールアドレス</span>
   p #{@user.email}
     <br>
   h3.ui.header
-    <span style="border-bottom: solid 2px black;">Twitter</span>
+    <span>Twitter</span>
   p 
     <br>
   h3.ui.header
-    <span style="border-bottom: solid 2px black;">本日の決断回数</span>
+    <span>本日の決断回数</span>
   p #{@user.count_today_choices}
     <br>
   h3.ui.header
-    <span style="border-bottom: solid 2px black;">これまでの決断回数</span>
+    <span>これまでの決断回数</span>
   p #{@user.count_all_choices}
     <br>
   h3.ui.header
-    <span style="border-bottom: solid 2px black;">優柔不断度</span>
+    <span>優柔不断度</span>
   p #{@user.how_often?}
   <br><br>
-  button.ui.secondary.basic.button[type="button" onclick="location.href='/users/#{@user.id}/edit'"]
+  = link_to edit_user_path, class: 'ui secondary basic button'
     | 情報を変更する
-  button.ui.secondary.button[type="button" onclick="location.href='/choices/new'"]
-    | 決断しに行く！
+  = link_to new_choice_path, class: 'ui secondary button'
+    | 決断しにいく
 
   <br><br><br>
   .ui.tabular.menu
