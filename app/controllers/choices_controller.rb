@@ -20,7 +20,7 @@ class ChoicesController < ApplicationController
       render :new
     elsif @choice.save
       @client.update("#{current_user.name}は、\r#{@choice.title}に対して、\r#{@choice.result}ことを決めた！！！！")
-      flash[:success] = 'この決断をtwitterに投稿しました。必ず実行してください。'
+      flash[:success] = '新たな決断が下されました。'
       redirect_to "/choices/result/#{@choice.id}"
     end
   end
@@ -62,10 +62,10 @@ class ChoicesController < ApplicationController
 
   def twitter_client
     @client = Twitter::REST::Client.new do |config|
-      config.consumer_key = "KmuUNllg1VyVhh1u1dkzBEnFq"
-      config.consumer_secret = "HQ1PwYMNBoZ09cYwONrMOkySqGRNeTw9EPm296gGGxfJEb8R4F"
-      config.access_token = "1350342213109051393-VbuNh7S8tw8fc0ChsDqtcnrjVgrvQH"
-      config.access_token_secret ="osHhPxT1fcjtjoIQ4YNtz6Hu3OnMVDGX97W7DhWNkPuad"
+      config.consumer_key = Rails.application.credentials.dig(:twitter, :key)
+      config.consumer_secret = Rails.application.credentials.dig(:twitter, :secret_key)
+      config.access_token = Rails.application.credentials.dig(:twitter, :token)
+      config.access_token_secret = Rails.application.credentials.dig(:twitter, :secret_token)
     end
   end
 end
