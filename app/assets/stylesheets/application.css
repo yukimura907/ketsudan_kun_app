@@ -73,3 +73,7 @@ footer {
   span {
     border-bottom: solid 2px black;
 }
+
+.tweet.alert {
+  color: red;
+}
