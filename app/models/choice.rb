@@ -7,7 +7,6 @@ class Choice < ApplicationRecord
   validates :option_5, length: { maximum: 15 }
   validates :result, length: { maximum: 15 }
 
-
   belongs_to :user
 
   before_validation :set_choice_title

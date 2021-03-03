@@ -12,10 +12,7 @@ class ChoicesController < ApplicationController
   end
 
   def create
-    options = []
-    options.push(@choice.option_1, @choice.option_2, @choice.option_3, @choice.option_4, @choice.option_5)
-    options.reject!(&:blank?)
-    @choice.result = options.sample
+    decide_result
     if params[:back]
       render :new
     elsif @choice.save
@@ -46,18 +43,27 @@ class ChoicesController < ApplicationController
   end
 
   def result_throuth_confirm?
-    if request.referer.nil?
-      redirect_to new_choice_path
-      flash[:danger] = 'お題と選択肢を入力してください'
-    end
+    return if request.referer.present?
+
+    redirect_to new_choice_path
+    flash[:danger] = 'お題と選択肢を入力してください'
   end
 
   def today_choices_too_many?
     redirect_to alert_choices_path if current_user.count_today_choices > 100
   end
 
+  def decide_result
+    options = []
+    options.push(@choice.option_1, @choice.option_2, @choice.option_3, @choice.option_4,
+                 @choice.option_5)
+    options.reject!(&:blank?)
+    @choice.result = options.sample
+  end
+
   def choice_params
-    params.require(:choice).permit(:title, :option_1, :option_2, :option_3, :option_4, :option_5, :result)
+    params.require(:choice).permit(:title, :option_1, :option_2, :option_3, :option_4, :option_5,
+                                   :result)
   end
 
   def twitter_client

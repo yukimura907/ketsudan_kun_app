@@ -1,15 +1,15 @@
 class User < ApplicationRecord
   authenticates_with_sorcery!
 
-  #validates :password, length: { minimum: 6 }, if: -> { new_record? || changes[:crypted_password] }
-  #validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
-  #validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
+  # validates :password, length: { minimum: 6 }, if: -> { new_record? || changes[:crypted_password] }
+  # validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
+  # validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
 
   validates :name, presence: true, length: { maximum: 255 }
 
-  has_many :choices
+  has_many :choices, foreign_key: :user_id, dependent: :destroy
   has_many :authentications, dependent: :destroy
-  accepts_nested_attributes_for :authentications 
+  accepts_nested_attributes_for :authentications
 
   def count_all_choices
     choices.count
@@ -23,11 +23,11 @@ class User < ApplicationRecord
 
   def how_often?
     if count_all_choices > 20
-      'とんでもなく優柔不断。たまには自分で決断せよ'
+      'あまりにも優柔不断。たまには自分で決断せよ'
     elsif count_all_choices > 10 && count_all_choices <= 20
-      'まぁまぁ優柔不断だが許容範囲'
+      '少し意思が弱くはないか？'
     else
-      '人並みに優柔不断。安心せよ。'
+      '人並みである。安心せよ。'
     end
   end
 end
