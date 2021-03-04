@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   end
 
   def show 
-    @choices = @user.choices.order(created_at: :desc)
+    @choices = @user.choices.page(params[:page]).per(10).order(created_at: :desc)
   end
 
   def edit; end

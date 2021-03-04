@@ -9,7 +9,7 @@ class ChoicesController < ApplicationController
   end
 
   def index
-    @choices = Choice.all.includes(:user).order(created_at: :desc)
+    @choices = Choice.page(params[:page]).per(20).includes(:user).order(created_at: :desc)
   end
 
   def confirm
