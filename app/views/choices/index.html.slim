@@ -1,8 +1,9 @@
 .ui.container.main
   h1.header.title
     | みんなの決断
-    <br><br>
-  <table class="ui very basic table">
+    br
+    br
+  table.ui.very.basic.table
     thead
       tr
         th 名前
@@ -15,7 +16,7 @@
         td = link_to choice.user.name, user_path(choice.user.id)
         td = choice.title 
         td = choice.result 
-        td = choice.created_at
+        td = l choice.created_at
     = paginate @choices
 
     
