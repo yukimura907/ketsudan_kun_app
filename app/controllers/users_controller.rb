@@ -16,7 +16,9 @@ class UsersController < ApplicationController
     end
   end
 
-  def show; end
+  def show 
+    @choices = @user.choices.order(created_at: :desc)
+  end
 
   def edit; end
 

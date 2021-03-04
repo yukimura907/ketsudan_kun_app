@@ -3,8 +3,13 @@ class ChoicesController < ApplicationController
   before_action :result_throuth_confirm?, only: [:result]
   before_action :today_choices_too_many?, only: [:new]
   before_action :twitter_client, only: [:create]
+  before_action :require_login
   def new
     @choice = Choice.new
+  end
+
+  def index
+    @choices = Choice.all.includes(:user).order(created_at: :desc)
   end
 
   def confirm
@@ -39,6 +44,8 @@ class ChoicesController < ApplicationController
   private
 
   def set_choice_instance
+    return if current_user.nil?
+
     @choice = current_user.choices.build(choice_params)
   end
 
@@ -50,7 +57,9 @@ class ChoicesController < ApplicationController
   end
 
   def today_choices_too_many?
-    redirect_to alert_choices_path if current_user.count_today_choices > 100
+    return if current_user.nil?
+    
+    redirect_to alert_choices_path if current_user.count_today_choices > 10
   end
 
   def decide_result

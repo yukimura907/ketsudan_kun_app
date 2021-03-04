@@ -1,0 +1,20 @@
+.ui.container.main
+  h1.header.title
+    | みんなの決断
+    <br><br>
+  <table class="ui very basic table">
+    thead
+      tr
+        th 名前
+        th お題
+        th 決断結果
+        th 決断した日時
+    tbody
+    - @choices.each do |choice|
+      tr 
+        td = link_to choice.user.name, user_path(choice.user.id)
+        td = choice.title 
+        td = choice.result 
+        td = choice.created_at
+
+    
