@@ -26,6 +26,7 @@ gem 'html2slim'
 gem 'sorcery'
 gem 'rails-i18n'
 gem 'twitter'
+gem 'kaminari'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
