@@ -1,24 +1,24 @@
 <div class='choice_show_image'>
 .ui.container.main
   h1.header.title
-    | 決断の詳細
+    | #{t '.title'}
   h3.ui.header
-    span 決断者
+    span = t '.name'
   p.normal 
     = @choice.user.name
   
   h3.ui.header
-    span 決断日時
+    span = Choice.human_attribute_name(:created_at)
   p.normal 
     = l @choice.created_at
 
   h3.ui.header 
-    span お題
+    span = Choice.human_attribute_name(:title)
   p.normal 
     = @choice.title
   
   h3.ui.header
-    span 選択肢
+    span = t '.options'
   .normal
     p = @choice.option_1
     p = @choice.option_2
@@ -30,9 +30,8 @@
 
     - if @choice.option_5.present?
       p = @choice.option_5
-  <br>
   h3.ui.header 
-    span 決断結果
+    span = Choice.human_attribute_name(:result)
   p.strong 
     = @choice.result
 </div>

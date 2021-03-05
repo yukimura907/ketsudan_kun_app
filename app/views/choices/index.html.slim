@@ -1,14 +1,14 @@
 .ui.container.main
   h1.header.title
-    | みんなの決断
+    | #{t '.title'}
   <br><br>
   table.ui.very.basic.table
     thead
       tr
-        th 名前
-        th お題
-        th 決断結果
-        th 決断した日時
+        th #{User.human_attribute_name(:name)}
+        th #{Choice.human_attribute_name(:title)}
+        th #{Choice.human_attribute_name(:result)}
+        th #{Choice.human_attribute_name(:created_at)}
     tbody
     - @choices.each do |choice|
       tr 

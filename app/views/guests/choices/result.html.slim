@@ -3,15 +3,20 @@
   h1.header.title
     | 今回の決断！
   <br><br><br><br>
-    h3.ui.header
+    h2.ui.header
       | あなた　は
   <br><br>
-    h3.ui.header
+    h2.ui.header
       | #{@choice.title}　に対して
   <br><br>
     h1.result.ui.header
       | #{@choice.result}　
   <br><br>
-    h3.ui.header
+    h2.ui.header
       | という決断をした！！
+  <br><br>
+  p.tweet.alert twitterでログインして、みんなの決断を見てみよう！
+  = link_to auth_at_provider_path(provider: :twitter), class: 'ui secondary button'
+    i.icon.twitter 
+    | twitterでログイン
 </div>
