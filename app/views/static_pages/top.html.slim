@@ -1,14 +1,15 @@
-.ui.container.main
-  h1.header.title
-    | ズバッと決断くん
-  p.catchcopy
-    |  貴公の決断
-    br
-    |  拙者が代わりに 
-    br
-    |  下ぞうぞ 
+.top_image
+  .ui.container.main
+    h1.header.title
+      | ズバッと決断くん
+    p.catchcopy
+      |  貴公の決断
+      br
+      |  拙者が代わりに 
+      br
+      |  下ぞうぞ 
   
-  - if current_user
-    == render 'shared/top'
-  - else
-    == render 'shared/before_login_top'
+    - if current_user
+      == render 'shared/top'
+    - else
+      == render 'shared/before_login_top'

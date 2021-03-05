@@ -1,7 +1,7 @@
+<div class='user_show_image'>
 .ui.container.main
   h1.header.title
     | プロフィール
-    br
     br
   h3.ui.header
     span 名前
@@ -33,7 +33,7 @@
     tbody
     - @choices.each do |choice|
       tr 
-        td = choice.title 
+        td = link_to choice.title, choice_path(choice.id)
         td = choice.result 
         td = l choice.created_at
     = paginate @choices
@@ -43,6 +43,7 @@
       | 名前を変更する
     = link_to new_choice_path, class: 'ui secondary button'
       | 決断しにいく
+</div>
 
 
 

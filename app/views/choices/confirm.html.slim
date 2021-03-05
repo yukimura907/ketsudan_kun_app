@@ -1,33 +1,34 @@
+<div class='confirm_image'>
 .ui.container.main
   h1.header.title
     | 最後の確認
   <br>
   h3.ui.header
     <span>お題</span>
-  p.confirm #{@choice.title}
+  p.normal #{@choice.title}
   
   h3.ui.header
     <span>1つ目の選択肢</span>
-  p.confirm #{@choice.option_1}
+  p.normal #{@choice.option_1}
   
   h3.ui.header
     <span>2つ目の選択肢</span>
-  p.confirm #{@choice.option_2}
+  p.normal #{@choice.option_2}
 
   - if @choice.option_3.present?
     h3.ui.header
       <span>3つ目の選択肢</span>
-    p.confirm #{@choice.option_3}
+    p.normal #{@choice.option_3}
 
   - if @choice.option_4.present?
     h3.ui.header
       <span>4つ目の選択肢</span>
-    p.confirm #{@choice.option_4}
+    p.normal #{@choice.option_4}
 
   - if @choice.option_5.present?
     h3.ui.header
       <span>5つ目の選択肢</span>
-    p.confirm #{@choice.option_5}
+    p.normal #{@choice.option_5}
 
 
 
@@ -41,7 +42,9 @@
     = f.hidden_field :option_5
     <br><br>
     = f.submit 'いざ！', class: 'ui secondary button'
+
     = f.submit '選択肢を考え直す', name: 'back', class: 'ui secondary button'
   
   = link_to root_path, class: 'ui secondary button'
     | やっぱり自分で決断する
+</div>

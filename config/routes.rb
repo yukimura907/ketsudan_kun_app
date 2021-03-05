@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get '/oauth/callback', to: 'oauths#callback'
   get '/oauth/:provider', to: 'oauths#oauth', as: :auth_at_provider
 
-  resources :choices, only: [:new, :create, :edit, :update, :index] do
+  resources :choices, only: [:new, :create, :edit, :update, :index, :show] do
     collection do
       post :confirm
       get :alert
