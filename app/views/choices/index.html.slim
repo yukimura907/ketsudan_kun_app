@@ -14,7 +14,7 @@
     - @choices.each do |choice|
       tr 
         td = link_to choice.user.name, user_path(choice.user.id)
-        td = choice.title 
+        td = link_to choice.title, choice_path(choice.id)
         td = choice.result 
         td = l choice.created_at
     = paginate @choices

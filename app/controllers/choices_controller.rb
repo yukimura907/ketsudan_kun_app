@@ -8,6 +8,10 @@ class ChoicesController < ApplicationController
     @choice = Choice.new
   end
 
+  def show
+    @choice = Choice.find(params[:id])
+  end
+
   def index
     @choices = Choice.page(params[:page]).per(20).includes(:user).order(created_at: :desc)
   end
@@ -37,10 +41,6 @@ class ChoicesController < ApplicationController
     render :new
   end
 
-  def update; end
-
-  def destroy; end
-
   private
 
   def set_choice_instance
@@ -59,7 +59,7 @@ class ChoicesController < ApplicationController
   def today_choices_too_many?
     return if current_user.nil?
     
-    redirect_to alert_choices_path if current_user.count_today_choices > 10
+    redirect_to alert_choices_path if current_user.count_today_choices > 2
   end
 
   def decide_result

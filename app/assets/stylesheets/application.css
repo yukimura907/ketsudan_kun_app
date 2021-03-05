@@ -17,8 +17,57 @@
   width: 100%;
   position: relative;
   min-height: 100%;
+} 
+
+body
+  .top_image {
+  background-image: url("home.jpg") !important;
+  background-repeat: no-repeat !important;
+  background-size: 60% !important;
+  background-position:right center !important ;
 }
 
+  .form_image {
+    background-image: url("form.jpg") !important;
+    background-repeat: no-repeat !important;
+    background-size: 30% !important;
+    background-position:right center !important ;
+  }
+
+  .confirm_image {
+    background-image: url("confirm.jpg") !important;
+    background-repeat: no-repeat !important;
+    background-size: 45% !important;
+    background-position:right center !important ;
+  }
+
+  .result_image {
+    background-image: url("result.jpg") !important;
+    background-repeat: no-repeat !important;
+    background-size: 60% !important;
+    background-position:right center !important ;
+  }
+
+  .alert_image {
+    background-image: url("alert.jpg") !important;
+    background-repeat: no-repeat !important;
+    background-size: 18% !important;
+    background-position: 80% 50% !important ;
+  }
+
+  .user_show_image {
+    background-image: url("user_show.jpg") !important;
+    background-repeat: no-repeat !important;
+    background-size: 35% !important;
+    background-position: 80% 8% !important ;
+  }
+
+  .choice_show_image {
+    background-image: url("choice_show.jpg") !important;
+    background-repeat: no-repeat !important;
+    background-size: 35% !important;
+    background-position: 80% 8% !important ;    
+  }
 footer {
   background-color: black;
   position: absolute;
@@ -31,7 +80,7 @@ footer {
 
 .ui.container.main {
   padding-top:80px;
-  padding-bottom:80px;
+  padding-bottom:180px;
 }
 
 .header.title {
@@ -65,8 +114,12 @@ footer {
 }
 
 
-.confirm {
-  font-size: 18px;
+.normal {
+  font-size: 15px;
+}
+
+.strong {
+  font-size: 24px;
 }
 
 .ui.header
