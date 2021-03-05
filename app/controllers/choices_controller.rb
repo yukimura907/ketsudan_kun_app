@@ -59,7 +59,7 @@ class ChoicesController < ApplicationController
   def today_choices_too_many?
     return if current_user.nil?
     
-    redirect_to alert_choices_path if current_user.count_today_choices > 2
+    redirect_to alert_choices_path if current_user.count_today_choices > 10
   end
 
   def decide_result

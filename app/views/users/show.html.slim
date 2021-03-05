@@ -1,28 +1,22 @@
 <div class='user_show_image'>
 .ui.container.main
-  h1.header.title
+  h1.header.title 
     | プロフィール
-    br
   h3.ui.header
     span 名前
   p = @user.name
-    br
   h3.ui.header
     span 本日の決断回数
   p = @user.count_today_choices
-    br
   h3.ui.header
     span これまでの決断回数
   p = @user.count_all_choices
-    br
   h3.ui.header
     span 優柔不断度
   p = @user.how_often?
-    br
   h3.ui.header 
     span 過去の決断
-    br
-    br
+  <br><br>
 
   table.ui.very.basic.table
     thead
@@ -40,10 +34,9 @@
 
   - if current_user == @user
     = link_to edit_user_path, class: 'ui secondary basic button'
-      | 名前を変更する
+      p 名前を変更する
     = link_to new_choice_path, class: 'ui secondary button'
-      | 決断しにいく
-</div>
+      p 決断しにいく
 
 
 
