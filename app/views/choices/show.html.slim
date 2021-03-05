@@ -3,19 +3,22 @@
   h1.header.title
     | 決断の詳細
   h3.ui.header
-    <span>決断者</span>
-  p.normal = @choice.user.name
+    span 決断者
+  p.normal 
+    = @choice.user.name
   
   h3.ui.header
-    <span>決断日時</span>
-  p.normal = l @choice.created_at
+    span 決断日時
+  p.normal 
+    = l @choice.created_at
 
   h3.ui.header 
     span お題
-  p.normal = @choice.title
+  p.normal 
+    = @choice.title
   
   h3.ui.header
-    <span>選択肢</span>
+    span 選択肢
   .normal
     p = @choice.option_1
     p = @choice.option_2
@@ -30,5 +33,6 @@
   <br>
   h3.ui.header 
     span 決断結果
-  p.strong = @choice.result
+  p.strong 
+    = @choice.result
 </div>

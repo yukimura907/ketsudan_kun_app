@@ -21,10 +21,13 @@
 
 body
   .top_image {
-  background-image: url("home.jpg") !important;
-  background-repeat: no-repeat !important;
-  background-size: 60% !important;
-  background-position:right center !important ;
+    background-image: url("home.jpg") !important;
+    background-repeat: no-repeat !important;
+    background-size: 70% !important;
+    background-position:right center !important ;
+    opacity: 0.1 i !important;
+    transform: translateX(-20px) i !important;
+    transition: all 1s i !important;
 }
 
   .form_image {
@@ -68,6 +71,7 @@ body
     background-size: 35% !important;
     background-position: 80% 8% !important ;    
   }
+
 footer {
   background-color: black;
   position: absolute;
@@ -84,11 +88,14 @@ footer {
 }
 
 .header.title {
-  font-size: 40px;
+  font-size: 50px;
+  font-family: “STKaiti”, serif;
 }
 
 .catchcopy {
-  font-size: 20px;
+  writing-mode: vertical-rl;
+  font-size: 30px;
+  font-family: “STKaiti”, serif;
 }
 
 .button.lists {
@@ -122,6 +129,13 @@ footer {
   font-size: 24px;
 }
 
+.ui.header.result {
+  font-size: 40px;
+}
+
+.show_result {
+  writing-mode: vertical-rl;
+}
 .ui.header
   span {
     border-bottom: solid 2px black;
