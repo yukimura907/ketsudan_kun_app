@@ -13,7 +13,11 @@ ja:
         title: お題
         option_1: 一つ目の選択肢
         option_2: 二つ目の選択肢
+        option_3: 三つ目の選択肢
+        option_4: 四つ目の選択肢
+        option_5: 五つ目の選択肢
         result: 決断結果
+        created_at: 決断した日時
   time:
     formats:
       default: "%Y年%m月%d日 %H時%M分%S秒"

@@ -4,37 +4,38 @@
     | 最後の確認
   <br>
   h3.ui.header
-    span お題
-  p.confirm 
+    span #{Choice.human_attribute_name(:title)}
+  p.normal 
     = @choice.title
   
   h3.ui.header
-    span 1つ目の選択肢
-  p.confirm 
+    span #{Choice.human_attribute_name(:option_1)}
+  p.normal 
     = @choice.option_1
   
   h3.ui.header
-    span 2つ目の選択肢
-  p.confirm 
+    span #{Choice.human_attribute_name(:option_2)}
+  p.normal 
     = @choice.option_2
 
   - if @choice.option_3.present?
     h3.ui.header
-      span 3つ目の選択肢
-    p.confirm 
+      span #{Choice.human_attribute_name(:option_3)}
+    p.normal 
       = @choice.option_3
 
   - if @choice.option_4.present?
     h3.ui.header
-      span 4つ目の選択肢
-    p.confirm 
+      span #{Choice.human_attribute_name(:option_4)}
+    p.normal 
       = @choice.option_4
 
   - if @choice.option_5.present?
     h3.ui.header
-      span 5つ目の選択肢
-    p.confirm 
+      span #{Choice.human_attribute_name(:option_5)}
+    p.normal 
       = @choice.option_5
+
 
 
 

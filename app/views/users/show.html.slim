@@ -1,16 +1,16 @@
 <div class='user_show_image'>
 .ui.container.main
   h1.header.title 
-    | プロフィール
+    | #{t '.title'}
   h3.ui.header
     span 名前
   p = @user.name
   h3.ui.header
     span 本日の決断回数
-  p = @user.count_today_choices
+  | #{@user.name}は、今日は合計#{@user.count_today_choices}回も決断を他人に委ねてしまった。
   h3.ui.header
     span これまでの決断回数
-  p = @user.count_all_choices
+  | #{@user.name}は、今までに合計#{@user.count_all_choices}回も決断を他人に委ねてしまった。
   h3.ui.header
     span 優柔不断度
   p = @user.how_often?

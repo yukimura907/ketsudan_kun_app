@@ -1,0 +1,16 @@
+ja:
+  choices:
+    index: 
+      title: みんなの決断
+    new:
+      please_enter_the_title_and_options: お題と選択肢を入力せよ
+    show:
+      title: 決断の詳細
+      name: 決断者
+      options: 選択肢
+    confirm:
+      title: 最後の確認
+    result: 
+      title: 今回の決断！
+      please_tweet_your_dicision_and_corner_yourself!: 決断をtwitterで呟いて、自分を追い込もう！
+

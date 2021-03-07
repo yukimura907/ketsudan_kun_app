@@ -1,21 +1,21 @@
 <div class='result_image'>
 .ui.container.main
   h1.header.title
-    | 今回の決断！
+    | #{t '.title'}
   <br><br><br>
-    h3.ui.header 
+    h2.ui.header 
       | #{@choice.user.name}　は
   <br><br>
-    h3.ui.header
+    h2.ui.header
       | #{@choice.title}　に対して
   <br><br>
-    h1.result.ui.header
+    h2.result.ui.header
       | #{@choice.result}　
   <br><br>
-    h3.ui.header
+    h2.ui.header
       | という決断をした！！
   <br><br>
-  p.tweet.alert 決断をtwitterに呟いて、自分を追い込もう！
+  p.tweet.alert = t '.please_tweet_your_dicision_and_corner_yourself!'
   = link_to "https://twitter.com/share?url=#{ request.url }&text=#{ current_user.name } は、#{@choice.title} に対して、#{@choice.result} ということを決断した！！", class: 'ui secondary button', target: '_blank' do
     i.icon.twitter  
     |  決断をTwitterで呟く
