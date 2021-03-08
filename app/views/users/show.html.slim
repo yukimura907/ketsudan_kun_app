@@ -3,27 +3,27 @@
   h1.header.title 
     | #{t '.title'}
   h3.ui.header
-    span 名前
+    span = t '.name'
   p = @user.name
   h3.ui.header
-    span 本日の決断回数
+    span = t '.todays choice count'
   | #{@user.name}は、今日は合計#{@user.count_today_choices}回も決断を他人に委ねてしまった。
   h3.ui.header
-    span これまでの決断回数
+    span = t '.all choice count'
   | #{@user.name}は、今までに合計#{@user.count_all_choices}回も決断を他人に委ねてしまった。
   h3.ui.header
-    span 優柔不断度
+    span = t '.how indesicive'
   p = @user.how_often?
   h3.ui.header 
-    span 過去の決断
+    span = t '.past choices'
   <br><br>
 
   table.ui.very.basic.table
     thead
       tr
-        th お題
-        th 決断結果
-        th 決断した日時
+        th = Choice.human_attribute_name(:title)
+        th = Choice.human_attribute_name(:result)
+        th = Choice.human_attribute_name(:created_at)
     tbody
     - @choices.each do |choice|
       tr 
@@ -34,9 +34,9 @@
 
   - if current_user == @user
     = link_to edit_user_path, class: 'ui secondary basic button'
-      p 名前を変更する
+      p = t '.edit my name'
     = link_to new_choice_path, class: 'ui secondary button'
-      p 決断しにいく
+      p = t '.make a decision'
 
 
 

@@ -3,7 +3,7 @@
   h1.header.title
     | #{Choice.model_name.human}
     h3.ui.header
-      |お題と選択肢を入力せよ
+      | #{t 'choices.new.please_enter_the_title_and_options'}
   .ui.form
     = form_with model: @choice, url: confirm_guests_choices_path, local: true do |f|
       = render 'shared/error_messages', model: f.object
@@ -43,5 +43,5 @@
         .ui.icon.button.five style= 'float: right;'
           i.minus.icon
       
-      = f.submit '確認する', class: 'ui secondary button'
+      = f.submit class: 'ui secondary button'
 </div>

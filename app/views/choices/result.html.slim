@@ -18,5 +18,5 @@
   p.tweet.alert = t '.please_tweet_your_dicision_and_corner_yourself!'
   = link_to "https://twitter.com/share?url=#{ request.url }&text=#{ current_user.name } は、#{@choice.title} に対して、#{@choice.result} ということを決断した！！", class: 'ui secondary button', target: '_blank' do
     i.icon.twitter  
-    |  決断をTwitterで呟く
+    | #{t '.tweet my decision'}
 </div>

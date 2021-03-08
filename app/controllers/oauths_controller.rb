@@ -21,7 +21,7 @@ class OauthsController < ApplicationController
     end
   end
 
-  # def auth_params
-  # params.permit(:code, :provider, :oauth_token, :oauth_verifier)
-  # end
+  def auth_params
+    params.permit(:code, :provider, :oauth_token, :oauth_verifier)
+  end
 end

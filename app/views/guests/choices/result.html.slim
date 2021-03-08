@@ -1,7 +1,7 @@
 <div class='result_image'>
 .ui.container.main
   h1.header.title
-    | 今回の決断！
+    | #{t 'choices.result.title'}
   <br><br><br><br>
     h2.ui.header
       | あなた　は
@@ -15,8 +15,8 @@
     h2.ui.header
       | という決断をした！！
   <br><br>
-  p.tweet.alert twitterでログインして、みんなの決断を見てみよう！
+  p.tweet.alert = t '.login as twitter and see other decisions!'
   = link_to auth_at_provider_path(provider: :twitter), class: 'ui secondary button'
     i.icon.twitter 
-    | twitterでログイン
+    | #{t '.login as twitter'}
 </div>
