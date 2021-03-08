@@ -2,3 +2,11 @@ ja:
   users:
     show:
       title: プロフィール
+      name: 名前
+      todays choice count: 本日の決断回数
+      all choice count: これまでの決断回数
+      how indesicive: 優柔不断度
+      past choices: 過去の決断
+      edit my name: 名前を変更する
+      make a decision: 決断しにいく  
+

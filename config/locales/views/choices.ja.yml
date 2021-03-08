@@ -10,7 +10,13 @@ ja:
       options: 選択肢
     confirm:
       title: 最後の確認
+      back: やっぱり自分で決断する
     result: 
       title: 今回の決断！
       please_tweet_your_dicision_and_corner_yourself!: 決断をtwitterで呟いて、自分を追い込もう！
+      tweet my decision: 決断をtwitterで呟く
+    alert: 
+      title: 喝！！
+      you are too indecisive: 貴様は優柔不断すぎる。
+      do it yourself occasionally: たまには自分で決断せい！
 

@@ -1,7 +1,7 @@
 <div class='confirm_image'>
 .ui.container.main
   h1.header.title
-    | 最後の確認
+    | #{t 'choices.confirm.title'}
   <br>
   h3.ui.header
     span #{Choice.human_attribute_name(:title)}
@@ -47,10 +47,10 @@
     = f.hidden_field :option_4
     = f.hidden_field :option_5
     <br><br>
-    = f.submit 'いざ！', class: 'ui secondary button'
-    = f.submit '選択肢を考え直す', name: 'back', class: 'ui secondary button'
+      = f.submit 'いざ！', class: 'ui secondary button'
+      = f.submit '選択肢を考え直す', name: 'back', class: 'ui secondary button'
   = link_to root_path, class: 'ui secondary button'
-    | やっぱり自分で決断する
+    | #{t 'choices.confirm.back'}
 </div>
  
 
