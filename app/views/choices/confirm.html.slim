@@ -48,9 +48,18 @@
     = f.hidden_field :option_5
     <br><br>
     = f.submit 'いざ！', class: 'ui secondary button'
-
     = f.submit '選択肢を考え直す', name: 'back', class: 'ui secondary button'
   
   = link_to root_path, class: 'ui secondary button'
     | #{t '.back'}
+
+  = form_with model: @choice, url: compassion_choices_path, local: true do |f| 
+    = f.hidden_field :title
+    = f.hidden_field :option_1
+    = f.hidden_field :option_2
+    = f.hidden_field :option_3
+    = f.hidden_field :option_4
+    = f.hidden_field :option_5
+    = f.submit '情けをかける', class: 'ui secondary button'
+
 </div>

@@ -1,0 +1,54 @@
+<div class='form_image'>
+.ui.container.main
+  h1.header.title
+    | 武士の情け
+    <br>
+    h3.ui.header
+      | お主の心はどの選択肢に揺れておる？
+    p.alert 一つ選択してください。その選択肢は決断される確率が上がります。
+
+  = form_with model: @choice, url: {controller: 'choices', action: 'compassion_create'}, local: true do |f|
+    = f.hidden_field :title
+    = f.hidden_field :option_1
+    = f.hidden_field :option_2
+    = f.hidden_field :option_3
+    = f.hidden_field :option_4
+    = f.hidden_field :option_5
+    <br><br>
+    <div class='grouped fields'>
+    .field
+      .ui.radio.checkbox
+        = f.radio_button :primary_option, @choice.option_1, checked: true
+        = f.label @choice.option_1
+    <br>
+    .field
+      .ui.radio.checkbox
+        = f.radio_button :primary_option, @choice.option_2
+        = f.label @choice.option_2
+    <br>
+    - if @choice.option_3.present?
+      .field
+        .ui.radio.checkbox
+          = f.radio_button :primary_option, @choice.option_3
+          = f.label @choice.option_3
+    <br>
+    - if @choice.option_4.present?
+      .field
+        .ui.radio.checkbox
+          = f.radio_button :primary_option, @choice.option_4
+          = f.label @choice.option_4
+    <br>
+    - if @choice.option_5.present?
+      .field
+        .ui.radio.checkbox
+          = f.radio_button :primary_option, @choice.option_5
+          = f.label @choice.option_5
+    <br>
+    = f.submit 'いざ！', class: 'ui secondary button'
+
+
+
+
+    
+
+    

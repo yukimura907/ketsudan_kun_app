@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   resources :choices, only: [:new, :create, :edit, :update, :index, :show] do
     collection do
-      post :confirm
+      post :confirm, :compassion, :compassion_create
       get :alert
     end
   end

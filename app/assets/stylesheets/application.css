@@ -141,6 +141,6 @@ footer {
     border-bottom: solid 2px black;
 }
 
-.tweet.alert {
+.alert {
   color: red;
 }
