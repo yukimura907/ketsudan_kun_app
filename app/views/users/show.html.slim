@@ -37,6 +37,9 @@
       p = t '.edit my name'
     = link_to new_choice_path, class: 'ui secondary button'
       p = t '.make a decision'
+    = link_to user_path(@user), class: 'ui secondary basic button',
+              data: { confirm: '本当に良いのか？今までの決断も全て削除されるぞ？' }, method: :delete do
+      p 退会する
 
 
 

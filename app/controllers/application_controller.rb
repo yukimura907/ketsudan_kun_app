@@ -6,6 +6,6 @@ class ApplicationController < ActionController::Base
   protected
 
   def not_authenticated
-    redirect_to login_path, danger: 'ログインしてください'
+    redirect_to root_path, danger: 'Twitterアカウントでログインしてください'
   end
 end

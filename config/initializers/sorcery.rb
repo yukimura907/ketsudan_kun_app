@@ -80,7 +80,7 @@ Rails.application.config.sorcery.configure do |config|
   # i.e. [:twitter, :facebook, :github, :linkedin, :xing, :google, :liveid, :salesforce, :slack, :line].
   # Default: `[]`
   #
-  config.external_providers = [:twitter]
+  config.external_providers = [:twitter, :facebook]
 
   # You can change it by your local ca_file. i.e. '/etc/pki/tls/certs/ca-bundle.crt'
   # Path to ca_file. By default use a internal ca-bundle.crt.
@@ -124,14 +124,14 @@ Rails.application.config.sorcery.configure do |config|
     email: 'email'
   }
   #
-  # config.facebook.key = ""
-  # config.facebook.secret = ""
-  # config.facebook.callback_url = "http://0.0.0.0:3000/oauth/callback?provider=facebook"
-  # config.facebook.user_info_path = "me?fields=email"
-  # config.facebook.user_info_mapping = {:email => "email"}
+  # config.facebook.key = Rails.application.credentials.dig(:sorcery, :facebook, :key)
+  # config.facebook.secret = Rails.application.credentials.dig(:sorcery, :facebook, :secret)
+  # config.facebook.callback_url = 'http://localhost:3000/oauth/callback?provider=facebook'
+  # config.facebook.user_info_path = "me?fields=name"
+  # config.facebook.user_info_mapping = {:name => "name"}
   # config.facebook.access_permissions = ["email"]
   # config.facebook.display = "page"
-  # config.facebook.api_version = "v2.3"
+  # config.facebook.api_version = "v6.0"
   # config.facebook.parse = :json
   #
   # config.instagram.key = ""

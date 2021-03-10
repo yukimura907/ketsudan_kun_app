@@ -1,9 +1,8 @@
 class ChoicesController < ApplicationController
   before_action :set_choice_instance, only: [:confirm, :create, :edit, :compassion, :compassion_create]
-  before_action :result_throuth_confirm?, only: [:result]
+  before_action :throuth_confirm?, only: [:result]
   before_action :today_choices_too_many?, only: [:new]
-  before_action :twitter_client, only: [:create]
-  before_action :require_login
+  # before_action :twitter_client, only: [:create] # twitter自動投稿を使用する場合のみ！
   def new
     @choice = Choice.new
   end
@@ -27,8 +26,8 @@ class ChoicesController < ApplicationController
     if params[:back]
       render :new
     elsif @choice.save
-      flash[:success] = '新たな決断が下されました。'
-      redirect_to "/choices/result/#{@choice.id}"
+      flash[:success] = t 'choices.flash.new decide with compassion'
+      redirect_to result_choice_path(@choice.id)
     end
   end
 
@@ -37,9 +36,8 @@ class ChoicesController < ApplicationController
     if params[:back]
       render :new
     elsif @choice.save
-      @client.update("#{current_user.name}は、\r#{@choice.title}に対して、\r#{@choice.result}ことを決めた！！！！")
-      flash[:success] = '新たな決断が下されました。'
-      redirect_to "/choices/result/#{@choice.id}"
+      flash[:success] = t 'choices.flash.new decide'
+      redirect_to result_choice_path(@choice.id)
     end
   end
 
@@ -61,16 +59,16 @@ class ChoicesController < ApplicationController
     @choice = current_user.choices.build(choice_params)
   end
 
-  def result_throuth_confirm?
+  def throuth_confirm?
     return if request.referer.present?
 
     redirect_to new_choice_path
-    flash[:danger] = 'お題と選択肢を入力してください'
+    flash[:danger] = t 'choices.flash.fullfill title and options'
   end
 
   def today_choices_too_many?
     return if current_user.nil?
-    
+
     redirect_to alert_choices_path if current_user.count_today_choices > 100
   end
 
@@ -85,32 +83,37 @@ class ChoicesController < ApplicationController
   def decide_with_compassion
     options = []
     options.push(@choice.option_1, @choice.option_2, @choice.option_3,
-                    @choice.option_4, @choice.option_5, params[:choice][:primary_option])
+                 @choice.option_4, @choice.option_5, params[:choice][:primary_option])
     true_options = options.reject!(&:blank?)
-    if @choice.option_5.present?
-      queues = {"#{@choice.option_1}" =>7, "#{@choice.option_2}" => 7, "#{@choice.option_3}" => 7, "#{@choice.option_4}" => 7, "#{@choice.option_5}" => 7, "#{params[:choice][:primary_option]}" => 65}
-    elsif @choice.option_4.present?
-      queues = {"#{@choice.option_1}" =>10, "#{@choice.option_2}" => 10, "#{@choice.option_3}" => 10, "#{@choice.option_4}" => 10, "#{params[:choice][:primary_option]}" => 60}
-    elsif @choice.option_3.present? 
-      queues = {"#{@choice.option_1}" =>15, "#{@choice.option_2}" => 15, "#{@choice.option_3}" => 15, "#{params[:choice][:primary_option]}" => 55}
-    else 
-      queues = {"#{@choice.option_1}" =>30, "#{@choice.option_2}" => 30, "#{params[:choice][:primary_option]}" => 40}
-    end
+    queues = if @choice.option_5.present?
+               { @choice.option_1.to_s => 7, @choice.option_2.to_s => 7, @choice.option_3.to_s => 7, @choice.option_4.to_s => 7,
+                 @choice.option_5.to_s => 7, (params[:choice][:primary_option]).to_s => 65 }
+             elsif @choice.option_4.present?
+               { @choice.option_1.to_s => 10, @choice.option_2.to_s => 10, @choice.option_3.to_s => 10, @choice.option_4.to_s => 10,
+                 (params[:choice][:primary_option]).to_s => 60 }
+             elsif @choice.option_3.present?
+               { @choice.option_1.to_s => 15, @choice.option_2.to_s => 15, @choice.option_3.to_s => 15,
+                 (params[:choice][:primary_option]).to_s => 55 }
+             else
+               { @choice.option_1.to_s => 30, @choice.option_2.to_s => 30, (params[:choice][:primary_option]).to_s => 40 }
+             end
     randomizer = WeightedRandomizer.new(queues)
     @choice.result = randomizer.sample
   end
 
   def choice_params
-    params.require(:choice).permit(:title, :option_1, :option_2, :option_3, :option_4, :option_5, 
+    params.require(:choice).permit(:title, :option_1, :option_2, :option_3, :option_4, :option_5,
                                    :result)
   end
 
-  def twitter_client
-    @client = Twitter::REST::Client.new do |config|
-      config.consumer_key = Rails.application.credentials.dig(:twitter, :key)
-      config.consumer_secret = Rails.application.credentials.dig(:twitter, :secret_key)
-      config.access_token = Rails.application.credentials.dig(:twitter, :token)
-      config.access_token_secret = Rails.application.credentials.dig(:twitter, :secret_token)
-    end
-  end
+  # twitter自動投稿を使用する場合のみ！
+
+  # def twitter_client
+  # @client = Twitter::REST::Client.new do |config|
+  # config.consumer_key = Rails.application.credentials.dig(:twitter, :key)
+  # config.consumer_secret = Rails.application.credentials.dig(:twitter, :secret_key)
+  # config.access_token = Rails.application.credentials.dig(:twitter, :token)
+  # config.access_token_secret = Rails.application.credentials.dig(:twitter, :secret_token)
+  # end
+  # end
 end

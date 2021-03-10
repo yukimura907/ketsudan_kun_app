@@ -1,0 +1,18 @@
+ja:
+  default:
+    links: 
+      lets decide: いざ決断！
+      everyone decide: 皆の決断
+      login as twitter: Twitterでログイン
+      decide as guest: 登録せずに決断！
+      home: HOME
+      about: 概要
+      my page: マイページ
+      logout: ログアウト
+      context: 利用規約
+      policy: プライバシーポリシー
+      contact: お問い合わせ
+    
+    messages:
+      name change success: 名前の変更に成功したぞ
+      name change failed: 名前の変更に失敗したぞ

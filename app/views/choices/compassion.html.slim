@@ -1,11 +1,11 @@
 <div class='form_image'>
 .ui.container.main
   h1.header.title
-    | 武士の情け
+    | #{t '.title'}
     <br>
     h3.ui.header
-      | お主の心はどの選択肢に揺れておる？
-    p.alert 一つ選択してください。その選択肢は決断される確率が上がります。
+      | #{t '.which choices do you prefer?'}
+    p.alert = t '.please choice one option'
 
   = form_with model: @choice, url: {controller: 'choices', action: 'compassion_create'}, local: true do |f|
     = f.hidden_field :title

@@ -19,4 +19,13 @@ ja:
       title: 喝！！
       you are too indecisive: 貴様は優柔不断すぎる。
       do it yourself occasionally: たまには自分で決断せい！
+    compassion:
+      title: 武士の情け
+      which choices do you prefer?: お主の心はどの選択肢に揺れておる？
+      please choice one option: 一つ選択してください。その選択肢は決断くんに選ばれる確率が上がります。
+    flash: 
+      new decide with compassion: 決断くんの情けによって、新たな決断が下されました。
+      new decide: 決断くんによって、新たな決断が下されました。
+      fullfill title and options: お題と選択肢を入力するのだ
+
 

@@ -4,16 +4,12 @@ header
       .left.menu
         = link_to root_path, class: 'item'
           i.icon.home
-          |  HOME 
+          | #{t 'default.links.home'}  
         = link_to about_path, class: 'item'
           i.icon.info
-          |  概要 
+          | #{t 'default.links.about'} 
 
       .right.menu
-        = link_to new_user_path, class: 'item'
-          i.icon.user.plus
-          |  新規登録 
-        = link_to login_path, class: 'item'
-          i.icon.sign.in.alternate
-          |  ログイン 
-          span
+        = link_to auth_at_provider_path(provider: :twitter), class: 'item'
+          i.icon.twitter
+          | #{t 'default.links.login as twitter'}
