@@ -1,17 +1,12 @@
 .button.lists
-  = link_to new_user_path, class: 'ui secondary button'
-    i.icon.user.plus
-    |  新規登録して決断！ 
-  = link_to login_path, class: 'ui secondary button'
-    i.icon.sign.in.alternate
-    |  ログインして決断！ 
   = link_to auth_at_provider_path(provider: :twitter), class: 'ui secondary button'
     i.icon.twitter 
-    |  Twitterでログイン 
+    | #{t 'default.links.login as twitter'}
 
-  = link_to auth_at_provider_path(provider: :facebook), class: 'ui secondary button'
+  /facebookログイン機能関連はデプロイ後に有効予定
+  /= link_to auth_at_provider_path(provider: :facebook), class: 'ui secondary button'
     i.icon.facebook 
     |  Facebookでログイン
-    
   = link_to new_guests_choice_path, class: 'ui secondary button'
-    |  登録せずに決断！ 
+    i.icon.gavel
+    | #{t 'default.links.decide as guest'} 

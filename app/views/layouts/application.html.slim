@@ -11,6 +11,15 @@ html
     link[rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css"]
     script[src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"]
 
+    /facebookシェア機能関連はデプロイ後に有効予定
+    /prefix "og: https://ogp.me/ns# fb: https://ogp.me/ns/fb# website: https://ogp.me/ns/website#"
+    /meta[property="og:title" content="ズバッと決断くん！"]
+    /meta[property="og:description" content="決断しちゃうぞ"]
+    /meta[property="og:image" content="app/assets/images/home.jpg"] 
+    /meta[property="og:type" content="website"] 
+    /meta[property="og:url" contetnt="http://127.0.0.1.3000/"] 
+    /meta[property="fb:app_id" content="3591404084417279"]
+
   body
     #wrapper
       - if current_user

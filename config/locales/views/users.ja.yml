@@ -8,5 +8,11 @@ ja:
       how indesicive: 優柔不断度
       past choices: 過去の決断
       edit my name: 名前を変更する
-      make a decision: 決断しにいく  
+      make a decision: 決断しにいく
+    flash:
+      success: 名前の変更に成功したぞ
+      danger: 名前の変更に失敗したぞ 
+      logout: ログアウトに成功したぞ
+      destroy: さらばだ。またいつでも来るが良い
+      not authorized: 貴様にその権限はない！
 
