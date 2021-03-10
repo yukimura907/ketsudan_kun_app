@@ -8,5 +8,10 @@
   = link_to auth_at_provider_path(provider: :twitter), class: 'ui secondary button'
     i.icon.twitter 
     |  Twitterでログイン 
+
+  = link_to auth_at_provider_path(provider: :facebook), class: 'ui secondary button'
+    i.icon.facebook 
+    |  Facebookでログイン
+    
   = link_to new_guests_choice_path, class: 'ui secondary button'
     |  登録せずに決断！ 

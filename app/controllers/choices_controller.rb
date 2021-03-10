@@ -37,7 +37,6 @@ class ChoicesController < ApplicationController
     if params[:back]
       render :new
     elsif @choice.save
-      @client.update("#{current_user.name}は、\r#{@choice.title}に対して、\r#{@choice.result}ことを決めた！！！！")
       flash[:success] = '新たな決断が下されました。'
       redirect_to "/choices/result/#{@choice.id}"
     end
