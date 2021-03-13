@@ -81,10 +81,6 @@ class ChoicesController < ApplicationController
   end
 
   def decide_with_compassion
-    options = []
-    options.push(@choice.option_1, @choice.option_2, @choice.option_3,
-                 @choice.option_4, @choice.option_5, params[:choice][:primary_option])
-    true_options = options.reject!(&:blank?)
     queues = if @choice.option_5.present?
                { @choice.option_1.to_s => 7, @choice.option_2.to_s => 7, @choice.option_3.to_s => 7, @choice.option_4.to_s => 7,
                  @choice.option_5.to_s => 7, (params[:choice][:primary_option]).to_s => 65 }
