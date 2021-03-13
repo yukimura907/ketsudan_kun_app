@@ -3,19 +3,19 @@ class UserSessionsController < ApplicationController
 
   # newアクション及びcreateアクションは、通常のユーザー作成機能を実装時に有効化。
 
-  #  def new
-  #    @user = User.new
-  #  end
+  def new
+    @user = User.new
+  end
 
-  #  def create
-  #    @user = login(params[:email], params[:password])
-  #    if @user
-  #      redirect_back_or_to new_choice_path, success: 'ログインしました'
-  #    else
-  #      flash.now[:danger] = 'ログインに失敗しました'
-  #      render :new
-  #    end
-  #  end
+  def create
+    @user = login(params[:email], params[:password])
+      if @user
+        redirect_back_or_to root_path, success: 'ログインしました'
+      else
+        flash.now[:danger] = 'ログインに失敗しました'
+        render :new
+      end
+  end
 
   def destroy
     logout
