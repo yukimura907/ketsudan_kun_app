@@ -5,7 +5,7 @@ class User < ApplicationRecord
   # validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
   # validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
 
-  validates :name, presence: true, uniqueness: true, length: { maximum: 15 }
+  validates :name, presence: true, uniqueness: { case_sensitive: true }, length: { maximum: 15 }
 
   has_many :choices, foreign_key: :user_id, dependent: :destroy
   has_many :authentications, dependent: :destroy

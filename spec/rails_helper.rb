@@ -69,4 +69,5 @@ RSpec.configure do |config|
   end
 
   config.include LoginMacros
+  config.include ChoiceMacros
 end
