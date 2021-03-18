@@ -124,4 +124,18 @@ RSpec.describe 'Choices', type: :system do
       end
     end
   end
+  describe '武士の情け画面のテスト' do
+    before do
+      login_as(user)
+      create_two_choice
+      click_on '情けをかける'
+    end
+    context 'いざ！を押す' do
+      it '決断結果が正しく表示され、データベースに保存される' do
+        expect(page).to have_content '今回の決断！'
+        expect(page).to have_content('テスト1') | have_content('テスト2')
+        expect(Choice.last.title).to eq 'テストお題'     
+      end
+    end
+  end
 end

@@ -17,4 +17,14 @@ RSpec.describe Choice, type: :model do
     choice.option_2 = nil
     expect(choice).to be_invalid
   end
+
+  it 'タイトルが16文字以上の場合、無効である' do
+    choice.title = 'a' * 16
+    expect(choice).to be_invalid
+  end
+
+  it '選択肢が16文字以上の場合、無効である' do
+    choice.option_1 = 'a' * 16
+    expect(choice).to be_invalid
+  end
 end
