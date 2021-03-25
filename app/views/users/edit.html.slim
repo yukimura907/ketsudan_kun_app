@@ -1,12 +1,16 @@
-.ui.container.main
-  h1.header.title
-    | ユーザー編集
-  .ui.form
-    = form_with model: @user, local: true do |f|
-      = render 'shared/error_messages', model: f.object
-      .field  
-        = f.label :名前
-        = f.text_field :name
+.ui.main.container 
+  .flex_box 
+    .main.contents 
+      h1.header.title
+        | ユーザー編集
+      .ui.form
+        = form_with model: @user, local: true do |f|
+          = render 'shared/error_messages', model: f.object
+          .field  
+            = f.label :名前
+            = f.text_field :name
 
-        = f.submit '登録する', class: 'ui secondary button'
+            = f.submit '登録する', class: 'ui secondary button'
+    .main_image 
+      img class='page_image' src='https://cdn-ak.f.st-hatena.com/images/fotolife/y/yukimura907/20210320/20210320115458.jpg'
           

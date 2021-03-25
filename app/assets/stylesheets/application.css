@@ -19,6 +19,18 @@
   min-height: 100%;
 } 
 
+.page_image {
+  height: 550px;
+}
+
+.flex_box {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main.contents {
+  width: 100%;
+}
 body
   .top_image {
     background-image: url("home.jpg") !important;
@@ -29,13 +41,6 @@ body
     transform: translateX(-20px) i !important;
     transition: all 1s i !important;
 }
-
-  .form_image {
-    background-image: url("form.jpg") !important;
-    background-repeat: no-repeat !important;
-    background-size: 30% !important;
-    background-position:right center !important ;
-  }
 
   .confirm_image {
     background-image: url("confirm.jpg") !important;
@@ -84,7 +89,7 @@ footer {
 
 .ui.container.main {
   padding-top:80px;
-  padding-bottom:180px;
+  padding-bottom:80px;
 }
 
 .header.title {

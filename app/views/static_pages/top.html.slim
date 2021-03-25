@@ -1,16 +1,21 @@
-.top_image
-  .ui.container.main
-    h1.header.title
-      | #{t '.title'}
-    <br><br>
-    p.catchcopy
-      | 貴公の決断
-      br
-      | 拙者が代わりに
-      br
-      | 下そうぞ
-  
-    - if current_user
-      == render 'shared/top'
-    - else
-      == render 'shared/before_login_top'
+.ui.container.main
+  .flex_box 
+    .main.contents
+      h1.header.title
+        | ズバッと
+      h1.header.title
+        | 決断くん！
+      <br><br>
+      p.catchcopy
+        | 貴公の決断
+        br
+        | 拙者が代わりに
+        br
+        | 下そうぞ
+      
+      - if current_user
+        == render 'shared/top'
+      - else
+        == render 'shared/before_login_top'
+    .main_image 
+      img class='page_image' src='https://cdn-ak.f.st-hatena.com/images/fotolife/y/yukimura907/20210320/20210320115401.jpg'

@@ -1,22 +1,25 @@
-<div class='result_image'>
 .ui.container.main
-  h1.header.title
-    | #{t 'choices.result.title'}
-  <br><br><br><br>
-    h2.ui.header
-      | あなた　は
-  <br><br>
-    h2.ui.header
-      | #{@choice.title}　に対して
-  <br><br>
-    h1.result.ui.header
-      | #{@choice.result}　
-  <br><br>
-    h2.ui.header
-      | という決断をした！！
-  <br><br>
-  p.tweet.alert = t '.login as twitter and see other decisions!'
-  = link_to auth_at_provider_path(provider: :twitter), class: 'ui secondary button'
-    i.icon.twitter 
-    | #{t '.login as twitter'}
-</div>
+  .flex_box 
+    .main.contents
+      h1.header.title
+        | #{t 'choices.result.title'}
+      <br><br><br>
+        h2.ui.header
+          | あなた　は
+      <br>
+        h2.ui.header
+          | #{@choice.title}　に対して
+      <br>
+        h1.result.ui.header
+          | #{@choice.result}　
+      <br>
+        h2.ui.header
+          | という決断をした！！
+      <br>
+      p.tweet.alert = t '.login as twitter and see other decisions!'
+      = link_to auth_at_provider_path(provider: :twitter), class: 'ui secondary button'
+        i.icon.twitter 
+        | #{t '.login as twitter'}
+  
+    .main_image 
+      img class='page_image' src='https://cdn-ak.f.st-hatena.com/images/fotolife/y/yukimura907/20210320/20210320115446.jpg'

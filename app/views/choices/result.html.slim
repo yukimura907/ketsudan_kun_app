@@ -1,27 +1,29 @@
-<div class='result_image'>
 .ui.container.main
-  h1.header.title
-    | #{t '.title'}
-  <br><br><br>
-    h2.ui.header 
-      | #{@choice.user.name}　は
-  <br>
-    h2.ui.header
-      | #{@choice.title}　に対して
-  <br>
-    h2.result.ui.header
-      | #{@choice.result}　
-  <br>
-    h2.ui.header
-      | という決断をした！！
-  <br><br>
-  p.tweet.alert = t '.please_tweet_your_dicision_and_corner_yourself!'
-  = link_to "https://twitter.com/share?url=#{ request.url }&text=#{ current_user.name } は、#{@choice.title} に対して、#{@choice.result} ということを決断した！！", class: 'ui secondary button', target: '_blank' do
-    i.icon.twitter  
-    | #{t '.tweet my decision'}
+  .flex_box
+    .main.contents
+      h1.header.title
+        | #{t '.title'}
+      <br><br><br>
+        h2.ui.header 
+          | #{@choice.user.name}　は
+      <br>
+        h2.ui.header
+          | #{@choice.title}　に対して
+      <br>
+        h2.result.ui.header
+          | #{@choice.result}　
+      <br>
+        h2.ui.header
+          | という決断をした！！
+      <br><br>
+      p.tweet.alert = t '.please_tweet_your_dicision_and_corner_yourself!'
+      = link_to "https://twitter.com/share?url=#{ request.url }&text=#{ current_user.name } は、#{@choice.title} に対して、#{@choice.result} ということを決断した！！", class: 'ui secondary button', target: '_blank' do
+        i.icon.twitter  
+        | #{t '.tweet my decision'}
 
-/  facebookログイン機能関連はデプロイ後に有効予定
-/  = link_to "http://www.facebook.com/share.php?u=https://127.0.0.1.3000/"
-    i.icon.facebook 
-    | facebookでシェアする
-</div>
+      /  facebookログイン機能関連はデプロイ後に有効予定
+      /  = link_to "http://www.facebook.com/share.php?u=https://127.0.0.1.3000/"
+        i.icon.facebook 
+        | facebookでシェアする
+    .main_image   
+      img class='page_image' src='https://cdn-ak.f.st-hatena.com/images/fotolife/y/yukimura907/20210320/20210320115446.jpg'

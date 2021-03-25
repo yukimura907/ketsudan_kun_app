@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Choice, type: :model do
-  let(:choice){ build(:choice) }
+  let(:choice){ build :choice, :without_title_and_result }
   it 'option_1, option_2が登録されている場合、有効である' do
     expect(choice).to be_valid
   end
