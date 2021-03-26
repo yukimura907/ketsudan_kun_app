@@ -1,56 +1,59 @@
-<div class='confirm_image'>
 .ui.container.main
-  h1.header.title
-    | #{t 'choices.confirm.title'}
-  <br>
-  h3.ui.header
-    span #{Choice.human_attribute_name(:title)}
-  p.normal 
-    = @choice.title
-  
-  h3.ui.header
-    span #{Choice.human_attribute_name(:option_1)}
-  p.normal 
-    = @choice.option_1
-  
-  h3.ui.header
-    span #{Choice.human_attribute_name(:option_2)}
-  p.normal 
-    = @choice.option_2
+  .flex_box 
+    .main.contents.animate__animated.animate__fadeInLeft.animate__faster
+      h1.header.title
+        | #{t 'choices.confirm.title'}
+      <br>
+      h3.ui.header
+        span #{Choice.human_attribute_name(:title)}
+      p.normal 
+        = @choice.title
+      
+      h3.ui.header
+        span #{Choice.human_attribute_name(:option_1)}
+      p.normal 
+        = @choice.option_1
+      
+      h3.ui.header
+        span #{Choice.human_attribute_name(:option_2)}
+      p.normal 
+        = @choice.option_2
 
-  - if @choice.option_3.present?
-    h3.ui.header
-      span #{Choice.human_attribute_name(:option_3)}
-    p.normal 
-      = @choice.option_3
+      - if @choice.option_3.present?
+        h3.ui.header
+          span #{Choice.human_attribute_name(:option_3)}
+        p.normal 
+          = @choice.option_3
 
-  - if @choice.option_4.present?
-    h3.ui.header
-      span #{Choice.human_attribute_name(:option_4)}
-    p.normal 
-      = @choice.option_4
+      - if @choice.option_4.present?
+        h3.ui.header
+          span #{Choice.human_attribute_name(:option_4)}
+        p.normal 
+          = @choice.option_4
 
-  - if @choice.option_5.present?
-    h3.ui.header
-      span #{Choice.human_attribute_name(:option_5)}
-    p.normal 
-      = @choice.option_5
-
-
+      - if @choice.option_5.present?
+        h3.ui.header
+          span #{Choice.human_attribute_name(:option_5)}
+        p.normal 
+          = @choice.option_5
 
 
-  = form_with model: @choice, url: result_guests_choices_path, local: true do |f| 
-    = f.hidden_field :title
-    = f.hidden_field :option_1
-    = f.hidden_field :option_2
-    = f.hidden_field :option_3
-    = f.hidden_field :option_4
-    = f.hidden_field :option_5
-    <br><br>
-      = f.submit 'いざ！', class: 'ui secondary button'
-      = f.submit '選択肢を考え直す', name: 'back', class: 'ui secondary button'
-  = link_to root_path, class: 'ui secondary button'
-    | #{t 'choices.confirm.back'}
-</div>
+
+
+      = form_with model: @choice, url: result_guests_choices_path, local: true do |f| 
+        = f.hidden_field :title
+        = f.hidden_field :option_1
+        = f.hidden_field :option_2
+        = f.hidden_field :option_3
+        = f.hidden_field :option_4
+        = f.hidden_field :option_5
+        <br><br>
+          = f.submit 'いざ！', class: 'ui secondary button'
+          = f.submit '選択肢を考え直す', name: 'back', class: 'ui secondary button'
+      = link_to root_path, class: 'ui secondary button'
+        | #{t 'choices.confirm.back'}
+    
+    .main_image.animate__animated.animate__backInRight.animate__faster.animate__delay-1s
+      img class='page_image' src='https://cdn-ak.f.st-hatena.com/images/fotolife/y/yukimura907/20210320/20210320115341.jpg'
  
 

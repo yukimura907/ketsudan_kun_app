@@ -1,24 +1,27 @@
-<div class='user_show_image'>
 .ui.container.main
-  h1.header.title 
-    | #{t '.title'}
-  h3.ui.header
-    span = t '.name'
-  p = @user.name
-  h3.ui.header
-    span = t '.todays choice count'
-  | #{@user.name}は、今日は合計#{@user.count_today_choices}回も決断を他人に委ねてしまった。
-  h3.ui.header
-    span = t '.all choice count'
-  | #{@user.name}は、今までに合計#{@user.count_all_choices}回も決断を他人に委ねてしまった。
-  h3.ui.header
-    span = t '.how indesicive'
-  p = @user.how_often?
-  h3.ui.header 
-    span = t '.past choices'
-  <br><br>
+  .flex_box 
+    .main.contents.animate__animated.animate__fadeInLeft.animate__faster
+      h1.header.title 
+        | #{t '.title'}
+      h3.ui.header
+        span = t '.name'
+      p = @user.name
+      h3.ui.header
+        span = t '.todays choice count'
+      | #{@user.name}は、今日は合計#{@user.count_today_choices}回も決断を他人に委ねてしまった。
+      h3.ui.header
+        span = t '.all choice count'
+      | #{@user.name}は、今までに合計#{@user.count_all_choices}回も決断を他人に委ねてしまった。
+      h3.ui.header
+        span = t '.how indesicive'
+      p = @user.how_often?
+      h3.ui.header 
+        span = t '.past choices'
 
-  table.ui.very.basic.table
+    .main_image.animate__animated.animate__backInRight.animate__fast.animate__delay-1s
+      img class='page_image' src='https://cdn-ak.f.st-hatena.com/images/fotolife/y/yukimura907/20210320/20210320115458.jpg'
+
+  table.ui.very.basic.table.animate__animated.animate__fadeInLeft.animate__faster
     thead
       tr
         th = Choice.human_attribute_name(:title)

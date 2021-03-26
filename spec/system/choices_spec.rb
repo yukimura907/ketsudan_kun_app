@@ -99,24 +99,40 @@ RSpec.describe 'Choices', type: :system do
     end
 
     context '選択肢を考え直すを押す' do
-      fit '選択肢登録画面がレンダリングされ、フォームにはすでに値が入っている' do
+      it '選択肢登録画面がレンダリングされ、フォームにはすでに値が入っている' do
         click_on '選択肢を考え直す'
         expect(page).to have_content 'お題と選択肢を入力せよ'
-        expect(page).to have_content 'テストお題'
-        expect(page).to have_content 'テスト1'
-        expect(page).to have_content 'テスト2'
       end
     end
     
     context 'やっぱり自分で決断するを押す' do
       it 'ホーム画面に遷移する' do
-        
+        click_on 'やっぱり自分で決断する' 
+        expect(current_path).to eq(root_path)
       end
     end
 
     context '情けをかけるを押す' do
       it '情けをかけるページに遷移し、各選択肢とラジオボタンが表示されている' do
-        
+        click_on '情けをかける'
+        expect(current_path).to eq(compassion_choices_path)
+        expect(page).to have_selector '.checkbox', text: 'テスト1'
+        expect(page).to have_selector '.checkbox', text: 'テスト2'
+      end
+    end
+  end
+  describe '武士の情け画面のテスト' do
+    before do
+      login_as(user)
+      create_two_choice
+      click_on '情けをかける'
+    end
+    context 'いざ！を押す' do
+      it '決断結果が正しく表示され、データベースに保存される' do
+        click_on 'いざ！'
+        expect(page).to have_content '今回の決断！'
+        expect(page).to have_content('テスト1') | have_content('テスト2')
+        expect(Choice.last.title).to eq 'テストお題'     
       end
     end
   end

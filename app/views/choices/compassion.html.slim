@@ -1,50 +1,54 @@
-<div class='form_image'>
 .ui.container.main
-  h1.header.title
-    | #{t '.title'}
-    <br>
-    h3.ui.header
-      | #{t '.which choices do you prefer?'}
-    p.alert = t '.please choice one option'
+  .flex_box 
+    .main.contents.animate__animated.animate__fadeInLeft.animate__faster
+      h1.header.title
+        | #{t '.title'}
+        <br>
+        h3.ui.header
+          | #{t '.which choices do you prefer?'}
+        p.alert = t '.please choice one option'
 
-  = form_with model: @choice, url: {controller: 'choices', action: 'compassion_create'}, local: true do |f|
-    = f.hidden_field :title
-    = f.hidden_field :option_1
-    = f.hidden_field :option_2
-    = f.hidden_field :option_3
-    = f.hidden_field :option_4
-    = f.hidden_field :option_5
-    <br><br>
-    <div class='grouped fields'>
-    .field
-      .ui.radio.checkbox
-        = f.radio_button :primary_option, @choice.option_1, checked: true
-        = f.label @choice.option_1
-    <br>
-    .field
-      .ui.radio.checkbox
-        = f.radio_button :primary_option, @choice.option_2
-        = f.label @choice.option_2
-    <br>
-    - if @choice.option_3.present?
-      .field
-        .ui.radio.checkbox
-          = f.radio_button :primary_option, @choice.option_3
-          = f.label @choice.option_3
-    <br>
-    - if @choice.option_4.present?
-      .field
-        .ui.radio.checkbox
-          = f.radio_button :primary_option, @choice.option_4
-          = f.label @choice.option_4
-    <br>
-    - if @choice.option_5.present?
-      .field
-        .ui.radio.checkbox
-          = f.radio_button :primary_option, @choice.option_5
-          = f.label @choice.option_5
-    <br>
-    = f.submit 'いざ！', class: 'ui secondary button'
+      = form_with model: @choice, url: {controller: 'choices', action: 'compassion_create'}, local: true do |f|
+        = f.hidden_field :title
+        = f.hidden_field :option_1
+        = f.hidden_field :option_2
+        = f.hidden_field :option_3
+        = f.hidden_field :option_4
+        = f.hidden_field :option_5
+        <br><br>
+        <div class='grouped fields'>
+        .field
+          .ui.radio.checkbox
+            = f.radio_button :primary_option, @choice.option_1, checked: true
+            = f.label @choice.option_1
+        <br>
+        .field
+          .ui.radio.checkbox
+            = f.radio_button :primary_option, @choice.option_2
+            = f.label @choice.option_2
+        <br>
+        - if @choice.option_3.present?
+          .field
+            .ui.radio.checkbox
+              = f.radio_button :primary_option, @choice.option_3
+              = f.label @choice.option_3
+        <br>
+        - if @choice.option_4.present?
+          .field
+            .ui.radio.checkbox
+              = f.radio_button :primary_option, @choice.option_4
+              = f.label @choice.option_4
+        <br>
+        - if @choice.option_5.present?
+          .field
+            .ui.radio.checkbox
+              = f.radio_button :primary_option, @choice.option_5
+              = f.label @choice.option_5
+        <br>
+        = f.submit 'いざ！', class: 'ui secondary button'
+    
+  .main_image.animate__animated.animate__backInRight.animate__fast.animate__delay-1s
+    img class='page_image' src='https://cdn-ak.f.st-hatena.com/images/fotolife/y/yukimura907/20210320/20210320115351.jpg'
 
 
 

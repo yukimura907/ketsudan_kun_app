@@ -1,47 +1,49 @@
-<div class='form_image'>
 .ui.container.main
-  h1.header.title
-    | #{Choice.model_name.human}
-    h3.ui.header
-      | #{t 'choices.new.please_enter_the_title_and_options'}
-  .ui.form
-    = form_with model: @choice, url: confirm_guests_choices_path, local: true do |f|
-      = render 'shared/error_messages', model: f.object
-      .field  
-        = f.label :title
-        = f.text_field :title
-        <br><br><br>
-      .field
-        = f.label :option_1
-        = f.text_field :option_1
-      .field 
-        = f.label :option_2
-        = f.text_field :option_2
-        .ui.icon.button.two style= 'float: right;'
-          i.plus.icon
-      
-      .field.three style= 'display: none;'
-        = f.label :option_3
-        = f.text_field :option_3
-        .ui.icon.button.three.plus style= 'float: right;'
-          i.plus.icon
-        .ui.icon.button.three.minus style= 'float: right;'
-          i.minus.icon
+  .flex_box
+    .main.contents.animate__animated.animate__fadeInLeft.animate__faster
+      h1.header.title
+        | #{Choice.model_name.human}
+        h3.ui.header
+          | #{t 'choices.new.please_enter_the_title_and_options'}
+      .ui.form
+        = form_with model: @choice, url: confirm_guests_choices_path, local: true do |f|
+          = render 'shared/error_messages', model: f.object
+          .field  
+            = f.label :title
+            = f.text_field :title
+            <br><br><br>
+          .field
+            = f.label :option_1
+            = f.text_field :option_1
+          .field 
+            = f.label :option_2
+            = f.text_field :option_2
+            .ui.icon.button.two style= 'float: right;'
+              i.plus.icon
+          
+          .field.three style= 'display: none;'
+            = f.label :option_3
+            = f.text_field :option_3
+            .ui.icon.button.three.plus style= 'float: right;'
+              i.plus.icon
+            .ui.icon.button.three.minus style= 'float: right;'
+              i.minus.icon
 
-      
-      .field.four style= 'display: none;'
-        = f.label :option_4
-        = f.text_field :option_4
-        .ui.icon.button.four.plus style= 'float: right;'
-          i.plus.icon
-        .ui.icon.button.four.minus style= 'float: right;'
-          i.minus.icon
-     
-      .field.five style= 'display: none;'
-        = f.label :option_5
-        = f.text_field :option_5
-        .ui.icon.button.five style= 'float: right;'
-          i.minus.icon
-      
-      = f.submit class: 'ui secondary button'
-</div>
+          
+          .field.four style= 'display: none;'
+            = f.label :option_4
+            = f.text_field :option_4
+            .ui.icon.button.four.plus style= 'float: right;'
+              i.plus.icon
+            .ui.icon.button.four.minus style= 'float: right;'
+              i.minus.icon
+        
+          .field.five style= 'display: none;'
+            = f.label :option_5
+            = f.text_field :option_5
+            .ui.icon.button.five style= 'float: right;'
+              i.minus.icon
+          
+          = f.submit class: 'ui secondary button'
+    .main_image.animate__animated.animate__backInRight.animate__fast.animate__delay-1s
+      img class='page_image' src="https://cdn-ak.f.st-hatena.com/images/fotolife/y/yukimura907/20210320/20210320115351.jpg"

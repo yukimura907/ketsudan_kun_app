@@ -1,37 +1,41 @@
-<div class='choice_show_image'>
 .ui.container.main
-  h1.header.title
-    | #{t '.title'}
-  h3.ui.header
-    span = t '.name'
-  p.normal 
-    = @choice.user.name
-  
-  h3.ui.header
-    span = Choice.human_attribute_name(:created_at)
-  p.normal 
-    = l @choice.created_at
+  .flex_box 
+    .main.contents.animate__animated.animate__fadeInLeft.animate__faster
+      h1.header.title
+        | #{t '.title'}
+      h3.ui.header
+        span = t '.name'
+      p.normal 
+        = @choice.user.name
+      
+      h3.ui.header
+        span = Choice.human_attribute_name(:created_at)
+      p.normal 
+        = l @choice.created_at
 
-  h3.ui.header 
-    span = Choice.human_attribute_name(:title)
-  p.normal 
-    = @choice.title
-  
-  h3.ui.header
-    span = t '.options'
-  .normal
-    p = @choice.option_1
-    p = @choice.option_2
-    - if @choice.option_3.present?
-      p = @choice.option_3
+      h3.ui.header 
+        span = Choice.human_attribute_name(:title)
+      p.normal 
+        = @choice.title
+      
+      h3.ui.header
+        span = t '.options'
+      .normal
+        p = @choice.option_1
+        p = @choice.option_2
+        - if @choice.option_3.present?
+          p = @choice.option_3
 
-    - if @choice.option_4.present?
-      p = @choice.option_4
+        - if @choice.option_4.present?
+          p = @choice.option_4
 
-    - if @choice.option_5.present?
-      p = @choice.option_5
-  h3.ui.header 
-    span = Choice.human_attribute_name(:result)
-  p.strong 
-    = @choice.result
+        - if @choice.option_5.present?
+          p = @choice.option_5
+      h3.ui.header 
+        span = Choice.human_attribute_name(:result)
+      p.strong 
+        = @choice.result
+    
+    .main_image.animate__animated.animate__backInRight.animate__fast.animate__delay-1s
+      img class='page_image' src='https://cdn-ak.f.st-hatena.com/images/fotolife/y/yukimura907/20210320/20210320115330.jpg'
 </div>
