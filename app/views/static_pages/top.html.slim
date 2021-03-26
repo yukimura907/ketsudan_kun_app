@@ -1,6 +1,6 @@
 .ui.container.main
   .flex_box 
-    .main.contents
+    .main.contents.animate__animated.animate__zoomIn.animate__fast
       h1.header.title
         | ズバッと
       h1.header.title
@@ -17,5 +17,5 @@
         == render 'shared/top'
       - else
         == render 'shared/before_login_top'
-    .main_image 
+    .main_image.animate__animated.animate__backInRight.animate__fast.animate__delay-1s
       img class='page_image' src='https://cdn-ak.f.st-hatena.com/images/fotolife/y/yukimura907/20210320/20210320115401.jpg'

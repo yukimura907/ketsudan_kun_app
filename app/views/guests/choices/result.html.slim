@@ -1,25 +1,25 @@
 .ui.container.main
   .flex_box 
     .main.contents
-      h1.header.title
+      h1.header.title.animate__animated.animate__fadeInLeft.animate__fast
         | #{t 'choices.result.title'}
       <br><br><br>
-        h2.ui.header
+        h2.ui.header.animate__animated.animate__fadeInLeft.animate__fast
           | あなた　は
       <br>
-        h2.ui.header
+        h2.ui.header.animate__animated.animate__fadeInLeft.animate__fast
           | #{@choice.title}　に対して
       <br>
-        h1.result.ui.header
+        h1.result.ui.header.animate__animated.animate__zoomIn.animate__delay-2s
           | #{@choice.result}　
       <br>
-        h2.ui.header
+        h2.ui.header.animate__animated.animate__fadeInLeft.animate__fast
           | という決断をした！！
       <br>
-      p.tweet.alert = t '.login as twitter and see other decisions!'
+      p.tweet.alert = 'twitterでログインして、みんなの決断を見てみよう！'
       = link_to auth_at_provider_path(provider: :twitter), class: 'ui secondary button'
         i.icon.twitter 
-        | #{t '.login as twitter'}
+        | twitterでログイン
   
-    .main_image 
+    .main_image.animate__animated.animate__backInRight.animate__faster.animate__delay-1s
       img class='page_image' src='https://cdn-ak.f.st-hatena.com/images/fotolife/y/yukimura907/20210320/20210320115446.jpg'

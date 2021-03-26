@@ -1,6 +1,6 @@
 .ui.container.main
   .flex_box 
-    .main.contents
+    .main.contents.animate__animated.animate__fadeInLeft.animate__faster
       h1.header.title 
         | #{t '.title'}
       h3.ui.header
@@ -18,10 +18,10 @@
       h3.ui.header 
         span = t '.past choices'
 
-    .main_image 
+    .main_image.animate__animated.animate__backInRight.animate__fast.animate__delay-1s
       img class='page_image' src='https://cdn-ak.f.st-hatena.com/images/fotolife/y/yukimura907/20210320/20210320115458.jpg'
 
-  table.ui.very.basic.table
+  table.ui.very.basic.table.animate__animated.animate__fadeInLeft.animate__faster
     thead
       tr
         th = Choice.human_attribute_name(:title)

@@ -1,6 +1,6 @@
 .ui.container.main
   .flex_box
-    .main.contents
+    .main.contents.animate__animated.animate__fadeInLeft.animate__faster
       h1.header.title
         | #{Choice.model_name.human}
         h3.ui.header
@@ -45,5 +45,5 @@
               i.minus.icon
           
           = f.submit class: 'ui secondary button'
-    .main_image 
+    .main_image.animate__animated.animate__backInRight.animate__fast.animate__delay-1s
       img class='page_image' src="https://cdn-ak.f.st-hatena.com/images/fotolife/y/yukimura907/20210320/20210320115351.jpg"

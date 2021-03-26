@@ -1,6 +1,6 @@
 .ui.container.main
   .flex_box 
-    .main.contents
+    .main.contents.animate__animated.animate__fadeInLeft.animate__faster
       h1.header.title
         | #{t '.title'}
       <br>
@@ -63,5 +63,5 @@
         = f.hidden_field :option_5
         = f.submit '情けをかける', class: 'ui secondary button'
 
-    .main_image 
+    .main_image.animate__animated.animate__backInRight.animate__faster.animate__delay-1s
       img class='page_image' src='https://cdn-ak.f.st-hatena.com/images/fotolife/y/yukimura907/20210320/20210320115341.jpg'
